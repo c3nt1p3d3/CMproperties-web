@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /js/
+Disallow: /uploads/
+Disallow: /sliding_photos/
+Disallow: /images/
+Disallow: /imgs/
+Disallow: /Log/
+Disallow: /colorschemes/
+Disallow: /fpdf17/
+Disallow: /fpdf17simplehtmldom_1_5/
+Disallow: /resources/
+Disallow: /XML/
