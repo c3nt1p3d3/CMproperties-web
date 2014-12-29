@@ -129,7 +129,7 @@
                             </li>
 
                             <li id="fifth" class="fifthanimation">
-                            <a href="#"> <img src="images/img_5.jpg" alt="Sunbathing"/> </a>
+                            <a href="#"> <img src="/uploads/T106/01%20playa%20la%20mata%202.jpg" alt="Sunbathing"/> </a>
                             <div class="tooltip"> <h1>Sunbathing</h1> </div>
                             </li>
                         </ul>
