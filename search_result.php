@@ -207,291 +207,295 @@
                             -->
 
 
- <script>
-$(function() {
-$( "#slider-range" ).slider({
-range: true,
-min: 0,
-max: 500,
-values: [ 75, 300 ],
-slide: function( event, ui ) {
-$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-}
-});
-$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-" - $" + $( "#slider-range" ).slider( "values", 1 ) );
-});
-</script>
-<label for="amount">Price range:</label>
-<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-<div id="slider-range"></div>
+
+                            <!--
+                            <script>
+                                $(function() {
+                                        $( "#slider-range" ).slider({
+                                                range: true,
+                                                min: 0,
+                                                max: 500,
+                                                values: [ 75, 300 ],
+                                                slide: function( event, ui ) {
+                                                        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                                                    }
+                                            });
+                                            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+                                            " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+                                    });
+                                </script>
+                                <label for="amount">Price range:</label>
+                                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <div id="slider-range"></div>
 
 
 
-                            <output name=o1>1.000</output>€ - <output name=o2>1000000</output>€
-                            <input id="price_range" type=range min=0 max=1000000 value=50000 step=10000 oninput="o1.value = valueLow + ':00'; o2.value = valueHigh + ':00'">
+                                <output name=o1>1.000</output>€ - <output name=o2>1000000</output>€
+                                <input id="price_range" type=range min=0 max=1000000 value=50000 step=10000 oninput="o1.value = valueLow + ':00'; o2.value = valueHigh + ':00'">
 
-                        <?php print(Translate('Reference:','')); ?>
-                        <input type="text" id="ref" name="ref" value="<?php echo $_GET['ref'] ?>" class="search">
+                                <?php print(Translate('Reference:','')); ?>
+                                <input type="text" id="ref" name="ref" value="<?php echo $_GET['ref'] ?>" class="search">
 
-                        </b>
+                                -->
+
+                            </b>
+
+                            </br>
+                            </br>
+                            <div id="search_button">
+                                <input type="submit" value="<?php print(Translate('Search','')); ?>">
+                            </div>
+                        </form>
+
+
+
+                        <!-- END OF THE SEARCH FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
                         </br>
-                        </br>
-                        <div id="search_button">
-                            <input type="submit" value="<?php print(Translate('Search','')); ?>">
-                        </div>
-                    </form>
-
-
-
-                    <!-- END OF THE SEARCH FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-                    </br>
 
 
 
 
-                    <!-- *************************************************************************************************************************************************************- -->
+                        <!-- *************************************************************************************************************************************************************- -->
 
-                    <table align="center" cellspacing="10">
+                        <table align="center" cellspacing="10">
 
-                        <tr>
+                            <tr>
 
-                            <?php
-
-
-
-                                // ***************************************************************** PAGINATION **********************************************************************************
-
-                                $pageno = $_GET['pageno'];
-
-                                if (!(isset($pageno))){
-                                    $pageno = 1;
-                                }
-
-                                // No of results on each page
-                                $resultsno = 20;
-
-                                //$max = ($pageno - 1) * $resultsno . ',' . $resultsno;
-                                $max = ($pageno - 1) * $resultsno . ',' . $resultsno;
-
-                                // ***************************************************************** PAGINATION **********************************************************************************
+                                <?php
 
 
 
-                                include 'connect.php';
+                                    // ***************************************************************** PAGINATION **********************************************************************************
 
-                                mysql_select_db("cmproperties", $db);
+                                    $pageno = $_GET['pageno'];
 
-                                if ($_GET['localidad'] == ""){
-                                    $localidad = "%";
-                                }else{
-                                    $localidad = $_GET['localidad'];
-                                }
+                                    if (!(isset($pageno))){
+                                        $pageno = 1;
+                                    }
 
-                                if ($_GET['zona'] == ""){
-                                    $zona = "%";
-                                }else{
-                                    $zona = $_GET['zona'];
-                                }
+                                    // No of results on each page
+                                    $resultsno = 20;
 
-                                if ($_GET['wc'] == ""){
-                                    $wc = "%";
-                                }else{
-                                    $wc = $_GET['wc'];
-                                }
+                                    //$max = ($pageno - 1) * $resultsno . ',' . $resultsno;
+                                    $max = ($pageno - 1) * $resultsno . ',' . $resultsno;
 
-                                if ($_GET['cat'] == ""){
-                                    $cat = "%";
-                                }else{
-                                    $cat = $_GET['cat'];
-                                }
-
-                                if ($_GET['hab'] == ""){
-                                    $hab = "%";
-                                }else{
-                                    $hab = $_GET['hab'];
-                                }
-
-                                if ($_GET['ref'] == ""){
-                                    $ref = "%";
-                                }else{
-                                    $ref = $_GET['ref'];
-                                }
-
-                                if ($_GET['sea_views'] == ""){
-                                    $sea_views = "%";
-                                }else{
-                                    $sea_views = $_GET['sea_views'];
-                                }
-
-
-                                $pmax = $_GET['precio_max'];
+                                    // ***************************************************************** PAGINATION **********************************************************************************
 
 
 
-                                if ($_GET['order_by'] == ""){
-                                    $order_by = "precio ASC";
-                                }else{
-                                    $order_by = $_GET['order_by'];
-                                }
+                                    include 'connect.php';
+
+                                    mysql_select_db("cmproperties", $db);
+
+                                    if ($_GET['localidad'] == ""){
+                                        $localidad = "%";
+                                    }else{
+                                        $localidad = $_GET['localidad'];
+                                    }
+
+                                    if ($_GET['zona'] == ""){
+                                        $zona = "%";
+                                    }else{
+                                        $zona = $_GET['zona'];
+                                    }
+
+                                    if ($_GET['wc'] == ""){
+                                        $wc = "%";
+                                    }else{
+                                        $wc = $_GET['wc'];
+                                    }
+
+                                    if ($_GET['cat'] == ""){
+                                        $cat = "%";
+                                    }else{
+                                        $cat = $_GET['cat'];
+                                    }
+
+                                    if ($_GET['hab'] == ""){
+                                        $hab = "%";
+                                    }else{
+                                        $hab = $_GET['hab'];
+                                    }
+
+                                    if ($_GET['ref'] == ""){
+                                        $ref = "%";
+                                    }else{
+                                        $ref = $_GET['ref'];
+                                    }
+
+                                    if ($_GET['sea_views'] == ""){
+                                        $sea_views = "%";
+                                    }else{
+                                        $sea_views = $_GET['sea_views'];
+                                    }
 
 
-                                if ($pmax == ""){
-                                    $query = mysql_query("SELECT * FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "' AND `sea_views` LIKE '" . $sea_views . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `cat` LIKE '" . $cat . "' AND `ref` LIKE '" . $ref . "' ORDER BY " . $order_by . " limit " . $max . "");
-                                } else {
-                                    $query = mysql_query("SELECT * FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "' AND `sea_views` LIKE '" . $sea_views . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `cat` LIKE '" . $cat . "'  AND `precio` < '" . $pmax . "' AND `ref` LIKE '" . $ref . "' ORDER BY " . $order_by . " limit " . $max . "");
-                                }
+                                    $pmax = $_GET['precio_max'];
 
 
-                                $house_counter = "0";
 
-                                while ($row = mysql_fetch_array($query))
-                                {
-                                    $reference = $row['ref'];
-                                    $query2 = mysql_query("SELECT * FROM `CasasImages` WHERE `ref` LIKE '" . $reference . "' ORDER BY imgpath LIMIT 1");
-                                    $row2 = mysql_fetch_array($query2);
-
-                                    $price = substr_replace($row['precio'], '.', strlen($row['precio'])-3, 0);
+                                    if ($_GET['order_by'] == ""){
+                                        $order_by = "precio ASC";
+                                    }else{
+                                        $order_by = $_GET['order_by'];
+                                    }
 
 
-                                    if ($house_counter!=0 && $house_counter % 4 == 0){
-                                        echo "</tr>";
-                                    echo "<tr>";
-                                        echo "<td id='search_result_cell' >";
-                                            echo "<a href='house.php?ref=" . $row['ref'] . "&lang=". $_SESSION['lang'] ."'> <img src='" . $row2['imgpath'] . "' alt='' id='image_result_cell' /></a></br>";
-                                        if($row['sold']==1){
-                                            echo "<b id='sold_res'>".Translate("Sold",'')."&nbsp</b><br>"; /* ********************************* SOLD LETTERS ********************************************** */
-                                        } else if($row['reserved']==1){
-                                            echo "<b id='sold_res'>".Translate("Reserved",'')."&nbsp</b><br>"; /* ********************************* RESERVED LETTERS ********************************************** */
-                                        } else {
-                                            echo "<p style='line-height: 28px;'><br></p>";
-                                        }
-                                        echo "Ref: <a style='line-height: 190%;' href='house.php?ref=" . $row['ref'] . "'>" . $row['ref'] . "</a><result></br><b>" . $row['localidad'] . "</b></br><i>" . $row['zona'] . "</i></br><result style='font-size: 13px;' >" . $row['cat'] . "</br>" . $row['hab'] . " Bed - " . $row['wc'] . " Bath</result>" . "</br></result><precio_result>" . $price . "&euro;</precio_result></br>";
-                                        echo "</td>";
-                                        //echo "</tr>";
+                                    if ($pmax == ""){
+                                        $query = mysql_query("SELECT * FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "' AND `sea_views` LIKE '" . $sea_views . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `cat` LIKE '" . $cat . "' AND `ref` LIKE '" . $ref . "' ORDER BY " . $order_by . " limit " . $max . "");
+                                    } else {
+                                        $query = mysql_query("SELECT * FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "' AND `sea_views` LIKE '" . $sea_views . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `cat` LIKE '" . $cat . "'  AND `precio` < '" . $pmax . "' AND `ref` LIKE '" . $ref . "' ORDER BY " . $order_by . " limit " . $max . "");
+                                    }
+
+
+                                    $house_counter = "0";
+
+                                    while ($row = mysql_fetch_array($query))
+                                    {
+                                        $reference = $row['ref'];
+                                        $query2 = mysql_query("SELECT * FROM `CasasImages` WHERE `ref` LIKE '" . $reference . "' ORDER BY imgpath LIMIT 1");
+                                        $row2 = mysql_fetch_array($query2);
+
+                                        $price = substr_replace($row['precio'], '.', strlen($row['precio'])-3, 0);
+
+
+                                        if ($house_counter!=0 && $house_counter % 4 == 0){
+                                            echo "</tr>";
+                                        echo "<tr>";
+                                            echo "<td id='search_result_cell' >";
+                                                echo "<a href='house.php?ref=" . $row['ref'] . "&lang=". $_SESSION['lang'] ."'> <img src='" . $row2['imgpath'] . "' alt='' id='image_result_cell' /></a></br>";
+                                                if($row['sold']==1){
+                                                    echo "<b id='sold_res'>".Translate("Sold",'')."&nbsp</b><br>"; /* ********************************* SOLD LETTERS ********************************************** */
+                                                } else if($row['reserved']==1){
+                                                    echo "<b id='sold_res'>".Translate("Reserved",'')."&nbsp</b><br>"; /* ********************************* RESERVED LETTERS ********************************************** */
+                                                } else {
+                                                    echo "<p style='line-height: 28px;'><br></p>";
+                                                }
+                                                echo "Ref: <a style='line-height: 190%;' href='house.php?ref=" . $row['ref'] . "'>" . $row['ref'] . "</a><result></br><b>" . $row['localidad'] . "</b></br><i>" . $row['zona'] . "</i></br><result style='font-size: 13px;' >" . $row['cat'] . "</br>" . $row['hab'] . " Bed - " . $row['wc'] . " Bath</result>" . "</br></result><precio_result>" . $price . "&euro;</precio_result></br>";
+                                                echo "</td>";
+                                            //echo "</tr>";
                                         $house_counter ++;
                                     }else{
                                         echo "<td id='search_result_cell'>";
-                                        echo "<a href='house.php?ref=" . $row['ref'] . "&lang=". $_SESSION['lang'] ."'> <img src='" . $row2['imgpath'] . "' alt='' id='image_result_cell' /></a></br>";
-                                        if($row['sold']==1){
-                                            echo "<b id='sold_res'>".Translate("Sold",'')."</b><br>"; /* ********************************* SOLD LETTERS ********************************************** */
-                                        } else if($row['reserved']==1){
-                                            echo "<b id='sold_res'>".Translate("Reserved",'')."</b><br>"; /* ********************************* RESERVED LETTERS ********************************************** */
-                                        } else {
-                                            echo "<p style='line-height: 28px;'><br></p>";
-                                        }
-                                        echo "Ref: <a style='line-height: 190%;' href='house.php?ref=" . $row['ref'] . "'>" . $row['ref'] . "</a><result></br><b>" . $row['localidad'] . "</b></br><i>" . $row['zona'] . "</i></br><result>" . $row['cat'] . "</br>" . $row['hab'] . " Bed - " . $row['wc'] . " Bath</result>" . "</br></result><precio_result>" . $price . "&euro;</precio_result></br>";
-                                        echo "</td>";
+                                            echo "<a href='house.php?ref=" . $row['ref'] . "&lang=". $_SESSION['lang'] ."'> <img src='" . $row2['imgpath'] . "' alt='' id='image_result_cell' /></a></br>";
+                                            if($row['sold']==1){
+                                                echo "<b id='sold_res'>".Translate("Sold",'')."</b><br>"; /* ********************************* SOLD LETTERS ********************************************** */
+                                            } else if($row['reserved']==1){
+                                                echo "<b id='sold_res'>".Translate("Reserved",'')."</b><br>"; /* ********************************* RESERVED LETTERS ********************************************** */
+                                            } else {
+                                                echo "<p style='line-height: 28px;'><br></p>";
+                                            }
+                                            echo "Ref: <a style='line-height: 190%;' href='house.php?ref=" . $row['ref'] . "'>" . $row['ref'] . "</a><result></br><b>" . $row['localidad'] . "</b></br><i>" . $row['zona'] . "</i></br><result>" . $row['cat'] . "</br>" . $row['hab'] . " Bed - " . $row['wc'] . " Bath</result>" . "</br></result><precio_result>" . $price . "&euro;</precio_result></br>";
+                                            echo "</td>";
                                         $house_counter ++;
+                                    }
+
                                 }
 
-                            }
+
+
+                                // ***************************************************************** How many houses there are with the restrictions given ******************************************************
+
+                                $data = mysql_query("SELECT localidad, precio, ref, hab, wc, cat, sold, reserved FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `sea_views` LIKE '" . $sea_views . "' AND `cat` LIKE '" . $cat ."' AND `ref` LIKE '" . $ref . "' ORDER BY " . $order_by . "");
+
+
+                                $rows = mysql_num_rows($data);
 
 
 
-                            // ***************************************************************** How many houses there are with the restrictions given ******************************************************
-
-                            $data = mysql_query("SELECT localidad, precio, ref, hab, wc, cat, sold, reserved FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `sea_views` LIKE '" . $sea_views . "' AND `cat` LIKE '" . $cat ."' AND `ref` LIKE '" . $ref . "' ORDER BY " . $order_by . "");
-
-
-                            $rows = mysql_num_rows($data);
+                                mysql_close($db);
 
 
 
-                            mysql_close($db);
-
-
-
-                            // Calculate the number of last page
-                            if($rows % $resultsno == 0){
-                                $correction = 0;
-                            }else{
-                                $correction = 1;
-                            }
-
-                            $last = intval($rows/$resultsno)+intval($correction);
-
-                            if ($pageno > $last){
-                                $pageno = 1;
-                            } elseif ($pageno > $last){
-                                $pageno = $last;
-                            }
-
-
-                        ?>
-
-
-
-                    </table>
-
-
-                    <!-- *************************************************************************************************************************************************************- -->
-                    <br><br>
-                    <p align="center">
-
-                    <!-- The links created below have a href pointing to the direction wanted, all the search parameters arein the url itself thanks to $qs (SEE HEADER) -->
-
-
-                    <?php
-
-                        echo "-Page <a style='font-style: italic;'>".$pageno."</a> of <a style='font-weight: bold;'>".$last."</a>-<br>";
-
-                        if ($pageno == 1){
-                            }else{
-                                echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=1'><<-</a> ";
-
-                                echo " ";
-
-                                $previous = $pageno-1;
-
-                                echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$previous'><-</a> ";
-
-                            } 
-                            //just a spacer
-                            echo "&nbsp";
-                            echo "&nbsp";
-
-
-                            // While loop to display all the possibilities, to jump to whatever page you wish
-                            $counter = 1;
-                            while($counter<=$last){
-                                if ($counter == $pageno){
-                                    //Display marked in some way
-                                    echo " <a style='font-size: 15px; color: black; font-weight: bold; background-color: #dddddd;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$counter'>&nbsp$counter&nbsp</a> ";
+                                // Calculate the number of last page
+                                if($rows % $resultsno == 0){
+                                    $correction = 0;
                                 }else{
-                                    //Display normal number
-                                    echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$counter'>&nbsp$counter&nbsp</a> ";
+                                    $correction = 1;
                                 }
-                                $counter++;
-                                echo "<a style='font-size: 5px;'>&nbsp</a>";
-                            }
 
+                                $last = intval($rows/$resultsno)+intval($correction);
 
-
-                            //This does the same as above, only checking if we are on the last page, and then generating the Next and Last links
-                            echo "&nbsp";
-                            echo "&nbsp";
-                            if ($pageno == $last){
-                                }else{
-                                    $next = $pageno+1;
-
-                                    echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$next'>-></a> ";
-
-                                    echo " ";
-
-                                    echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$last'>->></a> ";
-
+                                if ($pageno > $last){
+                                    $pageno = 1;
+                                } elseif ($pageno > $last){
+                                    $pageno = $last;
                                 }
 
 
                             ?>
 
-                        </form>
 
-                        </p>
+
+                        </table>
+
+
                         <!-- *************************************************************************************************************************************************************- -->
+                        <br><br>
+                        <p align="center">
+
+                        <!-- The links created below have a href pointing to the direction wanted, all the search parameters arein the url itself thanks to $qs (SEE HEADER) -->
+
+
+                        <?php
+
+                            echo "-Page <a style='font-style: italic;'>".$pageno."</a> of <a style='font-weight: bold;'>".$last."</a>-<br>";
+
+                            if ($pageno == 1){
+                                }else{
+                                    echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=1'><<-</a> ";
+
+                                    echo " ";
+
+                                    $previous = $pageno-1;
+
+                                    echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$previous'><-</a> ";
+
+                                } 
+                                //just a spacer
+                                echo "&nbsp";
+                                echo "&nbsp";
+
+
+                                // While loop to display all the possibilities, to jump to whatever page you wish
+                                $counter = 1;
+                                while($counter<=$last){
+                                    if ($counter == $pageno){
+                                        //Display marked in some way
+                                        echo " <a style='font-size: 15px; color: black; font-weight: bold; background-color: #dddddd;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$counter'>&nbsp$counter&nbsp</a> ";
+                                    }else{
+                                        //Display normal number
+                                        echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$counter'>&nbsp$counter&nbsp</a> ";
+                                    }
+                                    $counter++;
+                                    echo "<a style='font-size: 5px;'>&nbsp</a>";
+                                }
+
+
+
+                                //This does the same as above, only checking if we are on the last page, and then generating the Next and Last links
+                                echo "&nbsp";
+                                echo "&nbsp";
+                                if ($pageno == $last){
+                                    }else{
+                                        $next = $pageno+1;
+
+                                        echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$next'>-></a> ";
+
+                                        echo " ";
+
+                                        echo " <a style='font-size: 14px; color: black; background-color: #cccccc;' href='{$_SERVER['PHP_SELF']}?".$qs."&pageno=$last'>->></a> ";
+
+                                    }
+
+
+                                ?>
+
+                            </form>
+
+                            </p>
+                            <!-- *************************************************************************************************************************************************************- -->
 
 
 
@@ -502,23 +506,23 @@ $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 
 
 
+
+                        </div>
 
                     </div>
 
+
+                    <div class="cleaner"></div>
                 </div>
+                <div id="templatemo_content_bottom"></div>
+            </div> <!-- end of wrapper -->
 
+            <div id="templatemo_footer">
 
-                <div class="cleaner"></div>
-            </div>
-            <div id="templatemo_content_bottom"></div>
-        </div> <!-- end of wrapper -->
+                Copyright &copy; 2048 CMproperties
 
-        <div id="templatemo_footer">
+            </div> <!-- end of templatemo_footer -->
 
-            Copyright &copy; 2048 CMproperties
-
-        </div> <!-- end of templatemo_footer -->
-
-    </body>
-</html>
+        </body>
+    </html>
 
