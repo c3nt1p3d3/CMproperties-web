@@ -25,7 +25,7 @@ if(strlen($qs)<"12"){
 <meta name="keywords" content="cmproperties, casas, inmuebles, houses, property, sell, rent" />
 <meta name="description" content="CMproperties" />
 <meta name="google-translate-customization" content="f834267014ca7c94-fa3692548ecc1728-g752fbb026f2b6e43-13"></meta>
-<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="stylesheet_v2.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/swfobject.js"></script>
 
 
