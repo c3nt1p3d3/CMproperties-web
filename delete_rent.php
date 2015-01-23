@@ -22,7 +22,7 @@ function redirecting2(){
 
 include 'connect.php';
 
-mysql_select_db("db435736022", $db);
+mysql_select_db("cmproperties", $db);
 
 $ref = $_POST['reference'];
 $sure = $_POST['sure'];

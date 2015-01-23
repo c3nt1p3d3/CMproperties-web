@@ -84,7 +84,7 @@ function clearText(field)
 
 include 'connect.php';
 
-mysql_select_db("db435736022", $db);
+mysql_select_db("cmproperties", $db);
 
 
 $referencia = $_GET['ref'];

@@ -375,11 +375,7 @@
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
 
                         <?php
-                            if($heating!=0){
                                 echo Translate("Air conditioning / Heating",'').": ".Translate($heating,'')."</p><br>";
-                            } else {
-                                echo Translate("Air conditioning / Heating",'').": no </p><br>";
-                            }
                         ?>
 
                         </br></br>

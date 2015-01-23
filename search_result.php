@@ -233,10 +233,12 @@
                                 <output name=o1>1.000</output>€ - <output name=o2>1000000</output>€
                                 <input id="price_range" type=range min=0 max=1000000 value=50000 step=10000 oninput="o1.value = valueLow + ':00'; o2.value = valueHigh + ':00'">
 
+                                -->
+
+
                                 <?php print(Translate('Reference:','')); ?>
                                 <input type="text" id="ref" name="ref" value="<?php echo $_GET['ref'] ?>" class="search">
 
-                                -->
 
                             </b>
 
