@@ -1,20 +1,21 @@
 <?php
-    session_start();
-    include 'translator.php';
+session_start();
+include 'translator.php';
 
-    if ($_GET['lang']=='es') {
-        header("Content-Type: text/html; charset=ISO-8859-1");
-    } else {
-        header("Content-Type: text/html; charset=UTF-8");
-    }
+if ($_GET['lang']=='es') {
+    //header("Content-Type: text/html; charset=ISO-8859-1");
+    header("Content-Type: text/html; charset=UTF-8");
+} else {
+    header("Content-Type: text/html; charset=UTF-8");
+}
 
-    /********************************************************************************************************************************************************************************************************/
-    $qs = http_build_query($_GET, '', '&amp;'); /* This creates the link with all the information in the $_GET necessary for the pagination to work ******************************************************/
+/********************************************************************************************************************************************************************************************************/
+$qs = http_build_query($_GET, '', '&amp;'); /* This creates the link with all the information in the $_GET necessary for the pagination to work ******************************************************/
 
-    if(strlen($qs)<"12"){
-        $qs="";
-    }
-    /********************************************************************************************************************************************************************************************************/
+if(strlen($qs)<"12"){
+    $qs="";
+}
+/********************************************************************************************************************************************************************************************************/
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -30,53 +31,72 @@
 
 
 
-        <script type="text/javascript">
-            Image1=new Image
-            Image1.src="images/logo.png"
+<!-- Google Analytics script -->
 
-            Image2=new Image
-            Image2.src="images/properties.png"
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            Image3=new Image
-            Image3.src="images/templatemo_content_middle.png"
+ga('create', 'UA-59156391-1', 'auto');
+ga('send', 'pageview');
 
-            Image4=new Image
-            Image4.src="images/templatemo_content_top.png"
+</script>
 
-            Image5=new Image
-            Image5.src="images/templatemo_menu.png"
-
-            Image6=new Image
-            Image6.src="images/templatemo_menu_hover.png"
-        </script>
+<!-- Google Analytics script -->
 
 
 
 
-        <script type="text/javascript">
 
-            var flashvars = {};
-            flashvcars.cssSoure = "piecemaker.css";
-            flashvars.xmlSource = "photo_list.xml";
+<script type="text/javascript">
+Image1=new Image
+    Image1.src="images/logo.png"
 
-            var params = {};
-            params.play = "true";
-            params.menu = "false";
-            params.scale = "showall";
-            params.wmode = "transparent";
-            params.allowfullscreen = "true";
-            params.allowscriptaccess = "always";
-            params.allownetworking = "all";
+    Image2=new Image
+    Image2.src="images/properties.png"
 
-            swfobject.embedSWF('piecemaker.swf', 'piecemaker', '940', '420', '10', null, flashvars,
-            params, null);
+    Image3=new Image
+    Image3.src="images/templatemo_content_middle.png"
 
-        </script>
+    Image4=new Image
+    Image4.src="images/templatemo_content_top.png"
+
+    Image5=new Image
+    Image5.src="images/templatemo_menu.png"
+
+    Image6=new Image
+    Image6.src="images/templatemo_menu_hover.png"
+    </script>
 
 
 
 
-        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ TRANSLATOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<script type="text/javascript">
+
+var flashvars = {};
+flashvcars.cssSoure = "piecemaker.css";
+flashvars.xmlSource = "photo_list.xml";
+
+var params = {};
+params.play = "true";
+params.menu = "false";
+params.scale = "showall";
+params.wmode = "transparent";
+params.allowfullscreen = "true";
+params.allowscriptaccess = "always";
+params.allownetworking = "all";
+
+swfobject.embedSWF('piecemaker.swf', 'piecemaker', '940', '420', '10', null, flashvars,
+    params, null);
+
+</script>
+
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ TRANSLATOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 
         <div id="translate_element2">
@@ -93,11 +113,11 @@
         </div>
 
 
-        <?php
+<?php
 
-            $_SESSION['lang'] = $_GET['lang'];
+$_SESSION['lang'] = $_GET['lang'];
 
-        ?>
+?>
         <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ /TRANSLATOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 
@@ -111,44 +131,44 @@
         <script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>
         <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="js/jquery.ennui.contentslider.js"></script>
-        <script type="text/javascript">
-            $(function() {
-                    $('#one').ContentSlider({
-                            width : '960px',
-                            height : '200px',
-                            speed : 400,
-                            easing : 'easeOutSine'
-                    });
-            });
-        </script>
+<script type="text/javascript">
+$(function() {
+    $('#one').ContentSlider({
+        width : '960px',
+            height : '200px',
+            speed : 400,
+            easing : 'easeOutSine'
+    });
+});
+</script>
         <script src="js/jquery.chili-2.2.js" type="text/javascript"></script>
         <script src="js/chili/recipes.js" type="text/javascript"></script>
         <!--////// INCLUDE THE JS AND PIROBOX OPTION IN YOUR HEADER  \\\\\\\-->
 
         <script type="text/javascript" src="js/piroBox.1_2.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                    $().piroBox({
-                            my_speed: 600, //animation speed
-                            bg_alpha: 0.5, //background opacity
-                            radius: 4, //caption rounded corner
-                            scrollImage : false, // true == image follows the page, false == image remains in the same open position
-                            pirobox_next : 'piro_next', // Nav buttons -> piro_next == inside piroBox , piro_next_out == outside piroBox
-                            pirobox_prev : 'piro_prev',// Nav buttons -> piro_prev == inside piroBox , piro_prev_out == outside piroBox
-                            close_all : '.piro_overlay, .piro_close',// add class .piro_overlay(with comma)if you want overlay click close piroBox
-                            slideShow : '', // just delete slideshow between '' if you don't want it.
-                            slideSpeed : 4 //slideshow duration in seconds(3 to 6 Recommended)
-                    });
-            });
-        </script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $().piroBox({
+        my_speed: 600, //animation speed
+            bg_alpha: 0.5, //background opacity
+            radius: 4, //caption rounded corner
+            scrollImage : false, // true == image follows the page, false == image remains in the same open position
+            pirobox_next : 'piro_next', // Nav buttons -> piro_next == inside piroBox , piro_next_out == outside piroBox
+            pirobox_prev : 'piro_prev',// Nav buttons -> piro_prev == inside piroBox , piro_prev_out == outside piroBox
+            close_all : '.piro_overlay, .piro_close',// add class .piro_overlay(with comma)if you want overlay click close piroBox
+            slideShow : '', // just delete slideshow between '' if you don't want it.
+            slideSpeed : 4 //slideshow duration in seconds(3 to 6 Recommended)
+    });
+});
+</script>
         <!--//////********************************************** END *************************************************************\\\\\\\-->
-        <script language="javascript" type="text/javascript">
-            function clearText(field)
-            {
-                    if (field.defaultValue == field.value) field.value = '';
-                    else if (field.value == '') field.value = field.defaultValue;
-            }
-        </script>
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
 
     </head>
 
@@ -187,41 +207,41 @@
                     <!--<h1 align="center"><cmprop>Details</cmprop></h1>-->
 
                     <p align="center" ><house_p>
-                    <?php
+<?php
 
-                        include 'connect.php';
+include 'connect.php';
 
-                        mysql_select_db("cmproperties", $db);
+mysql_select_db("cmproperties", $db);
 
-                        $referencia = $_GET['ref'];
-
-
-                        $query = mysql_query("SELECT localidad, precio, hab, desc_eng, cat, provincia, wc, zona, ref, titulo, caract, parking, sold, reserved, comunidad, ibi, m_const, m_parcela, year, reformado, heating, pool, map_search, sea_views, colab FROM `Casas` WHERE `ref` LIKE '" . $referencia . "'");
+$referencia = $_GET['ref'];
 
 
-                        $row = mysql_fetch_array($query);
-                        $reference = $row['ref'];
-
-                        $price = substr_replace($row['precio'], '.', strlen($row['precio'])-3, 0);
-
-                        if($row['sold']==1){
-                            echo "<p id='sold_res'>".Translate("Sold",'')."</p><br>";
-                        } else if($row['reserved']==1){
-                            echo "<p id='sold_res'>".Translate("Reserved", '')."</p><br>";
-                        }
-
-                        $pool = $row['pool'];
-                        $mconst = $row['m_const'];
-                        $m_parcela = $row['m_parcela'];
-                        $parking = $row['parking'];
-                        $comunidad = $row['comunidad'];
-                        $ibi = $row['ibi'];
-                        $year = $row['year'];
-                        $reformado = $row['reformado'];
-                        $heating = $row['heating'];
+$query = mysql_query("SELECT localidad, precio, hab, desc_eng, desc_es, cat, provincia, wc, zona, ref, titulo, caract, parking, sold, reserved, comunidad, ibi, m_const, m_parcela, year, reformado, heating, pool, map_search, sea_views, colab FROM `Casas` WHERE `ref` LIKE '" . $referencia . "'");
 
 
-                    ?>
+$row = mysql_fetch_array($query);
+$reference = $row['ref'];
+
+$price = substr_replace($row['precio'], '.', strlen($row['precio'])-3, 0);
+
+if($row['sold']==1){
+    echo "<p id='sold_res'>".Translate("Sold",'')."</p><br>";
+} else if($row['reserved']==1){
+    echo "<p id='sold_res'>".Translate("Reserved", '')."</p><br>";
+}
+
+$pool = $row['pool'];
+$mconst = $row['m_const'];
+$m_parcela = $row['m_parcela'];
+$parking = $row['parking'];
+$comunidad = $row['comunidad'];
+$ibi = $row['ibi'];
+$year = $row['year'];
+$reformado = $row['reformado'];
+$heating = $row['heating'];
+
+
+?>
 
 
                     <b style='border-radius: 9px; letter-spacing: 1px; font-style: italic; line-height: 23px; font-size: 21px; '>
@@ -242,8 +262,8 @@
 
 
                     <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
-                    <?php echo Translate("Location",'').": <b>";
-                            echo $row['localidad'] ?>
+<?php echo Translate("Location",'').": <b>";
+echo $row['localidad'] ?>
                         </b></br>
                         <?php echo "</p></br>"; ?>
 
@@ -255,13 +275,13 @@
                         </br>
 
 
-                        <?php
-                            if ($row['hab'] == 1){
-                                $bed = "bedroom";
-                            } else {
-                                $bed = "bedrooms";
-                            }
-                        ?>
+<?php
+    if ($row['hab'] == 1){
+        $bed = "bedroom";
+    } else {
+        $bed = "bedrooms";
+    }
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
                         <img src='images/icons/bed6.png' alt='icon' height='18px' width='23px' />&nbsp
@@ -269,13 +289,13 @@
                         </p></br>
 
 
-                        <?php
-                            if ($row['wc'] == 1){
-                                $bath = "bathroom";
-                            } else {
-                                $bath = "bathrooms";
-                            }
-                        ?>
+<?php
+if ($row['wc'] == 1){
+    $bath = "bathroom";
+} else {
+    $bath = "bathrooms";
+}
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
                         <img src='images/icons/bathtub3.png' alt='icon' height='20px' width='23px' />&nbsp
@@ -288,95 +308,95 @@
 
 
 
-                        <?php
-                            /* ********************************************************************************************* */
-                            $carac = $row['caract'];
-                            $wtf = explode(",", $carac);
-                            $c_count = 0;
-                            while ($c_count < 2){
-                                $caracteristicas = $row['caract'];
-                                echo "<p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>";
-                                echo Translate($wtf[$c_count],'');
-                                echo "</p>";
-                                $c_count++;
-                                if ($wtf[$c_count] != ""){
-                                    echo "</br>";
-                                }
-                            }
-                        ?>
+<?php
+/* ********************************************************************************************* */
+$carac = $row['caract'];
+$wtf = explode(",", $carac);
+$c_count = 0;
+while ($c_count < 2){
+    $caracteristicas = $row['caract'];
+    echo "<p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>";
+    echo Translate($wtf[$c_count],'');
+    echo "</p>";
+    $c_count++;
+    if ($wtf[$c_count] != ""){
+        echo "</br>";
+    }
+}
+?>
 
                         <br>
                         <br>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
 
-                        <?php
-                            if($pool==1){
-                                echo "<img src='images/icons/swimming19.png' alt='icon' height='18px' width='23px' />&nbsp";
-                                echo Translate("Swimmingpool",'')."</p><br>";
-                            }
-                        ?>
+<?php
+if($pool==1){
+    echo "<img src='images/icons/swimming19.png' alt='icon' height='18px' width='23px' />&nbsp";
+    echo Translate("Swimmingpool",'')."</p><br>";
+}
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
                         <img src='images/icons/drafting1.png' alt='icon' height='18px' width='18px' />&nbsp&nbsp
-                        <?php
-                            echo Translate("Built area",'').": ".Translate($mconst,'')."m2</p><br>";
-                        ?>
+<?php
+echo Translate("Built area",'').": ".Translate($mconst,'')."m2</p><br>";
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
 
-                        <?php
-                            if($m_parcela!=0){
-                                echo Translate("Plot area",'').": ".Translate($m_parcela,'')."m2</p><br>";
-                            }
-                        ?>
+<?php
+if($m_parcela!=0){
+    echo Translate("Plot area",'').": ".Translate($m_parcela,'')."m2</p><br>";
+}
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
 
-                        <?php
-                            if($parking==1){
-                                echo "<img src='images/icons/car5.png' alt='icon' height='18px' width='18px' />&nbsp&nbsp";
-                                echo Translate("Parking",'')."</p><br>";
-                            }
-                        ?>
+<?php
+if($parking==1){
+    echo "<img src='images/icons/car5.png' alt='icon' height='18px' width='18px' />&nbsp&nbsp";
+    echo Translate("Parking",'')."</p><br>";
+}
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
 
-                        <?php
-                            if($comunidad!=0){
-                                echo Translate("Community fee",'').": ".Translate($comunidad,'')."&euro;" . Translate("per year",'') . "</p><br>";
-                            }
-                        ?>
+<?php
+if($comunidad!=0){
+    echo Translate("Community fee",'').": ".Translate($comunidad,'')."&euro;" . Translate("per year",'') . "</p><br>";
+}
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
 
-                        <?php
-                            if($ibi!=0){
-                                echo Translate("Taxes",'').": ".Translate($ibi,'')."&euro;" . Translate("per year",'') . " </p><br>";
-                            }
-                        ?>
+<?php
+if($ibi!=0){
+    echo Translate("Taxes",'').": ".Translate($ibi,'')."&euro;" . Translate("per year",'') . " </p><br>";
+}
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
 
-                        <?php
-                            if($year!=0){
-                                echo Translate("Build year",'').": ".Translate($year,'')."</p><br>";
-                            }
-                        ?>
+<?php
+if($year!=0){
+    echo Translate("Build year",'').": ".Translate($year,'')."</p><br>";
+}
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
 
-                        <?php
-                            if($reformado!=0){
-                                echo Translate("Refurbished",'').": ".Translate($reformado,'')."</p><br>";
-                            }
-                        ?>
+<?php
+if($reformado!=0){
+    echo Translate("Refurbished",'').": ".Translate($reformado,'')."</p><br>";
+}
+?>
 
                         <p align='center' style='border-radius: 9px; letter-spacing: 1px; font-weight: bold; font-size: 16px; background-color: #eeeeee; color: black; padding: 0 10px; line-height: 18px; margin: 0 53px'>
 
-                        <?php
-                                echo Translate("Air conditioning / Heating",'').": ".Translate($heating,'')."</p><br>";
-                        ?>
+<?php
+echo Translate("Air conditioning / Heating",'').": ".Translate($heating,'')."</p><br>";
+?>
 
                         </br></br>
 
@@ -384,7 +404,21 @@
 
                         <p style='border-radius: 9px; background-color: #eeeeee; margin: 0 53px;padding: 10px; font-size: 14px; color: black; '>
 
-                        <?php echo Translate_desc($row['desc_eng'],'') ?>
+
+<?php
+
+if ($_GET['lang']=='es') {
+    if (!$row['desc_es']){
+        echo Translate_desc($row['desc_eng'],'');
+    } else {
+        echo $row['desc_es'];
+    }
+} else {
+    echo Translate_desc($row['desc_eng'],'');
+}
+
+?>
+
 
                         </p></br></br></br>
 
@@ -392,44 +426,44 @@
 
                         <!-- *********************************************** <GOOGLE MAPS> ***************************************************************************************** -->
 
-                        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCpXZcKzbEKdYgp3MtlU7mQ0sVgx4cRx8Q&sensor=false">
-                        </script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCpXZcKzbEKdYgp3MtlU7mQ0sVgx4cRx8Q&sensor=false">
+</script>
 
-                        <?php
-                            $map_search = $row['map_search'];
-                        ?>
-
-
-                        <script>
-                        </script>
+<?php
+$map_search = $row['map_search'];
+?>
 
 
-                        <script>
+<script>
+</script>
 
-                            var geocoder;
-                            var map;
 
-                            function initialize (){
-                                    geocoder = new google.maps.Geocoder();
-                                    var latlng = new google.maps.LatLng(<?php echo $map_search; ?>);
-                                    var myOptions = {zoom: 15,center: latlng,mapTypeId: google.maps.MapTypeId.ROADMAP};
-                                    map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
-                                    var marker = new google.maps.Marker({
-                                            map: map,
-                                            position: latlng
-                                    });
+<script>
 
-                                    var circle = new google.maps.Circle({
-                                            map: map,
-                                            // radius: 450,
-                                            fillColor: '#ec7014',
-                                            fillOpacity: 0.25,
-                                            strokeWeight: 0
-                                    });
-                                    circle.bindTo('center', marker, 'position');
-                            }
+var geocoder;
+var map;
 
-                        </script>
+function initialize (){
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(<?php echo $map_search; ?>);
+    var myOptions = {zoom: 15,center: latlng,mapTypeId: google.maps.MapTypeId.ROADMAP};
+    map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+    var marker = new google.maps.Marker({
+        map: map,
+            position: latlng
+    });
+
+    var circle = new google.maps.Circle({
+        map: map,
+            // radius: 450,
+            fillColor: '#ec7014',
+            fillOpacity: 0.25,
+            strokeWeight: 0
+    });
+    circle.bindTo('center', marker, 'position');
+}
+
+</script>
 
 
 
@@ -449,17 +483,17 @@
                         <br/>
                         <br/>
 
-                        <script>
-                            var ref = '<?php print($referencia); ?>';
-                            var url_pdf = '/pdfview.php?ref=';
-                            var url_pdf_h = '/pdfview_h.php?ref=';
-                            var url_email = '/email.php?ref=';
+<script>
+var ref = '<?php print($referencia); ?>';
+var url_pdf = '/pdfview.php?ref=';
+var url_pdf_h = '/pdfview_h.php?ref=';
+var url_email = '/email.php?ref=';
 
-                            var pdf_url = url_pdf+ref+"&lang=es";
-                            var pdf_url_h = url_pdf_h+ref+"&lang=es";
-                            var email_url = url_email+ref+"&lang=es";
+var pdf_url = url_pdf+ref+"&lang=es";
+var pdf_url_h = url_pdf_h+ref+"&lang=es";
+var email_url = url_email+ref+"&lang=es";
 
-                        </script>
+</script>
 
                         <p align="center">
                         <button style="width: 5em; border-radius: 4px; font-size: 14px; font-weight: bold; letter-spacing: 2px;" onclick="window.open( pdf_url ); return false;" id="PDF" >PDF</button>
@@ -468,41 +502,41 @@
                         </p>
 
 
-                        <?php
+<?php
 
 
-                            echo "</house_p></p></div>";
+echo "</house_p></p></div>";
 
 
-                        echo '<div id="templatemo_sidebar" class="notranslate" ><p align="center">';
+echo '<div id="templatemo_sidebar" class="notranslate" ><p align="center">';
 
 
-                            echo "<p align='center' style='font-size: 19px; font-style: bold; font-color: solid black; '><b>Ref: </b>";
-                            echo $row['ref'] . "</p></br>";
+echo "<p align='center' style='font-size: 19px; font-style: bold; font-color: solid black; '><b>Ref: </b>";
+echo $row['ref'] . "</p></br>";
 
 
-                            $query2 = mysql_query("SELECT imgpath FROM `CasasImages` WHERE `ref` LIKE '" . $reference . "' ORDER BY imgpath");
-                            $query3 = mysql_query("SELECT imgpath FROM `CasasImages` WHERE `ref` LIKE '" . $reference . "' ORDER BY imgpath LIMIT 1, 50");
-                            $query_first_only = mysql_query("SELECT imgpath FROM `CasasImages` WHERE `ref` LIKE '" . $reference . "' ORDER BY imgpath LIMIT 1");
-                            $counter = "0";
-                            while ($row2 = mysql_fetch_array($query2))
-                            {
-                                while ($row_first = mysql_fetch_array($query_first_only))
-                                {
-                                    $counter ++;
-                                    echo "<a href='" .$row_first['imgpath'] . "' class='pirobox_gall' title='Photo " . $counter . "'><img style='border: 3px solid white;' src='" . $row_first['imgpath'] . "' width='95%' height='100%' alt='Main Image' /></a>";
-                                    echo "</br></br>";
-                                }
-                                while ($row3 = mysql_fetch_array($query3))
-                                {
-                                    $counter ++;
-                                    echo "<a href='" . $row3['imgpath'] . "' class='pirobox_gall' title='Photo " . $counter . "'><img style='margin: 2px 2px 2px 2px; border: 2px solid white;' src='" . $row3['imgpath'] . "' width='31%' height='31%' alt='Image".$counter."' ></a>";
-                                }
-                            }
+$query2 = mysql_query("SELECT imgpath FROM `CasasImages` WHERE `ref` LIKE '" . $reference . "' ORDER BY imgpath");
+$query3 = mysql_query("SELECT imgpath FROM `CasasImages` WHERE `ref` LIKE '" . $reference . "' ORDER BY imgpath LIMIT 1, 50");
+$query_first_only = mysql_query("SELECT imgpath FROM `CasasImages` WHERE `ref` LIKE '" . $reference . "' ORDER BY imgpath LIMIT 1");
+$counter = "0";
+while ($row2 = mysql_fetch_array($query2))
+{
+    while ($row_first = mysql_fetch_array($query_first_only))
+    {
+        $counter ++;
+        echo "<a href='" .$row_first['imgpath'] . "' class='pirobox_gall' title='Photo " . $counter . "'><img style='border: 3px solid white;' src='" . $row_first['imgpath'] . "' width='95%' height='100%' alt='Main Image' /></a>";
+        echo "</br></br>";
+    }
+    while ($row3 = mysql_fetch_array($query3))
+    {
+        $counter ++;
+        echo "<a href='" . $row3['imgpath'] . "' class='pirobox_gall' title='Photo " . $counter . "'><img style='margin: 2px 2px 2px 2px; border: 2px solid white;' src='" . $row3['imgpath'] . "' width='31%' height='31%' alt='Image".$counter."' ></a>";
+    }
+}
 
-                            mysql_close($db);
+mysql_close($db);
 
-                        ?>
+?>
 
                         </p>
                     </div>

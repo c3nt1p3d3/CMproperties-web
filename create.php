@@ -67,6 +67,8 @@
 
         Descripcion English:<br><textarea rows="10" cols="80" name="desc_eng" /></textarea><br><br>
 
+        Descripcion Spanish:<br><textarea rows="10" cols="80" name="desc_es" /></textarea><br><br>
+
         <?php
 
             include 'connect.php';

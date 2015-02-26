@@ -34,6 +34,7 @@
     $cat = $row['cat'];
     $hab = $row['hab'];
     $desc_eng = $row['desc_eng'];
+    $desc_es = $row['desc_es'];
     $zona = $row['zona'];
     $precio = $row['precio'];
     $prov = $row['provincia'];
@@ -100,6 +101,8 @@
 
     //---------------------------------------------------------------DATA PRINT 1-------------------------------------------------------------------------
     // ************************** Titutlo ******************
+
+    $pdf->SetTitle($ref);
 
     $pdf->AddFont('BOOKOSB','','BOOKOSB.php');
 
@@ -234,11 +237,15 @@
 
     $pdf -> Cell(12,6,' ',0,0,R);
 
-    $pdf -> Image('images/flags/english.png',5,222,15,10);
+    $pdf -> Image('images/flags/english.png',5,227,15,10);
 
     $pdf -> MultiCell(180,6,$desc_eng,0,L,0);
 
-    $desc_spa = Translate_desc($desc_eng,'');
+    if (!$desc_es){
+        $desc_spa = Translate_desc($desc_eng,'');
+    } else {
+        $desc_spa = $desc_es;
+    }
 
     $pdf -> SetFont('arial', 'I', 11.5);
 

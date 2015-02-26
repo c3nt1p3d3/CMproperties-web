@@ -1,18 +1,18 @@
 <?php
-    session_start();
-    include 'translator.php';
+session_start();
+include 'translator.php';
 
+header("Content-Type: text/html; charset=UTF-8");
+
+if (!isset($_SESSION['lang'])){
+    $_SESSION['lang']='en';
+}
+
+if ($_GET['lang']=='es') {
+    header("Content-Type: text/html; charset=ISO-8859-1");
+} else {
     header("Content-Type: text/html; charset=UTF-8");
-
-    if (!isset($_SESSION['lang'])){
-        $_SESSION['lang']='en';
-    }
-
-    if ($_GET['lang']=='es') {
-        header("Content-Type: text/html; charset=ISO-8859-1");
-    } else {
-        header("Content-Type: text/html; charset=UTF-8");
-    }
+}
 
 
 ?>
@@ -31,31 +31,48 @@
         <script type="text/javascript" src="js/swfobject.js"></script>
 
 
-        <script type="text/javascript">
+<!-- Google Analytics script -->
 
-            var flashvars = {};
-            flashvars.cssSource = "piecemaker.css";
-            flashvars.xmlSource = "photo_list.xml";
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            var params = {};
-            params.play = "true";
-            params.menu = "false";
-            params.scale = "showall";
-            params.wmode = "transparent";
-            params.allowfullscreen = "true";
-            params.allowscriptaccess = "always";
-            params.allownetworking = "all";
+  ga('create', 'UA-59156391-1', 'auto');
+  ga('send', 'pageview');
 
-            swfobject.embedSWF('piecemaker.swf', 'piecemaker', '1190', '420', '10', null, flashvars,params, null);
+</script>
 
-        </script>
-        <script language="javascript" type="text/javascript">
-            function clearText(field)
-            {
-                    if (field.defaultValue == field.value) field.value = '';
-                    else if (field.value == '') field.value = field.defaultValue;
-            }
-        </script>
+<!-- End of Google Analytics script -->
+
+
+
+<script type="text/javascript">
+
+var flashvars = {};
+flashvars.cssSource = "piecemaker.css";
+flashvars.xmlSource = "photo_list.xml";
+
+var params = {};
+params.play = "true";
+params.menu = "false";
+params.scale = "showall";
+params.wmode = "transparent";
+params.allowfullscreen = "true";
+params.allowscriptaccess = "always";
+params.allownetworking = "all";
+
+swfobject.embedSWF('piecemaker.swf', 'piecemaker', '1190', '420', '10', null, flashvars,params, null);
+
+</script>
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
 
 
     </head>
@@ -76,11 +93,11 @@
         <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=es" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/spanish.png"></a>
     </div>
 
-    <?php
+<?php
 
-        $_SESSION['lang'] = $_GET['lang'];
+$_SESSION['lang'] = $_GET['lang'];
 
-    ?>
+?>
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ /TRANSLATOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
     <body>
@@ -109,27 +126,27 @@
 
                         <ul>
                             <li id="first" class="firstanimation">  <!-- ID for tooltip and class for animation -->
-                            <a href="#"> <img src="sliding_photos/slider_01.jpg" alt="Cougar"/> </a>
+                            <a href="#"> <img src="sliding_photos/slider_01.jpg" alt="Golf Orihuela Costa"/> </a>
                             <div class="tooltip"> <h1>Cougar</h1> </div>
                             </li>
 
                             <li id="second" class="secondanimation">
-                            <a href="#"> <img src="sliding_photos/slider_02.jpg" alt="Lions"/> </a>
+                            <a href="#"> <img src="sliding_photos/slider_02.jpg" alt="Playa"/> </a>
                             <div class="tooltip"> <h1>Lions</h1> </div>
                             </li>
 
                             <li id="third" class="thirdanimation">
-                            <a href="#"> <img src="sliding_photos/slider_03.jpg" alt="Snowalker"/> </a>
+                            <a href="#"> <img src="sliding_photos/slider_03.jpg" alt="Salinas Torrevieja"/> </a>
                             <div class="tooltip"> <h1>Snowalker</h1> </div>
                             </li>
 
                             <li id="fourth" class="fourthanimation">
-                            <a href="#"> <img src="sliding_photos/templatemo_940x360_04.jpg" alt="Howling"/> </a>
+                            <a href="#"> <img src="sliding_photos/slider_04.jpg" alt="House for Sale"/> </a>
                             <div class="tooltip"> <h1>Howling</h1> </div>
                             </li>
 
                             <li id="fifth" class="fifthanimation">
-                            <a href="#"> <img src="/uploads/T106/01%20playa%20la%20mata%202.jpg" alt="Sunbathing"/> </a>
+                            <a href="#"> <img src="/uploads/T106/01%20playa%20la%20mata%202.jpg" height="100%" width="100%"  alt="La Mata"/> </a>
                             <div class="tooltip"> <h1>Sunbathing</h1> </div>
                             </li>
                         </ul>
@@ -203,18 +220,18 @@
                         <b>
                             <?php print(Translate('Location:','')); ?><select name="localidad" class="search">
                                 <option value="%" <?php echo($_POST['localidad'] == "%" ? ' selected="selected"' : null) ?> >Any</option>
-                                <option value="Torrevieja" <?php echo($_POST['localidad'] == "Torrevieja" ? ' selected="selected"' : null) ?> >Torrevieja</option>
+                                <option value="Dehesa de Campoamor" <?php echo($_POST['localidad'] == "Dehesa de Campoamor" ? ' selected="selected"' : null) ?> >Dehesa de Campoamor</option>
                                 <option value="Guardamar" <?php echo($_POST['localidad'] == "Guardamar" ? ' selected="selected"' : null) ?> >Guardamar</option>
-                                <option value="Valle_del_sol" <?php echo($_POST['localidad'] == "Valle_del_sol" ? ' selected="selected"' : null) ?> >Valle del Sol</option>
-                                <option value="Orihuela Costa" <?php echo($_POST['localidad'] == "Orihuela Costa" ? ' selected="selected"' : null) ?> >Orihuela Costa</option>
-                                <option value="Pilar de la Horadada" <?php echo($_POST['localidad'] == "Pilar de la Horadada" ? ' selected="selected"' : null) ?> >Pilar de la Horadada</option>
-                                <option value="San Javier" <?php echo($_POST['localidad'] == "San Javier" ? ' selected="selected"' : null) ?> >San Javier</option>
-                                <option value="San Miguel de Salinas" <?php echo($row['localidad'] == "San Miguel de Salinas" ? ' selected="selected"' : null) ?> >San Miguel de Salinas</option>
                                 <option value="Los Alcazares" <?php echo($_POST['localidad'] == "Los Alcazares" ? ' selected="selected"' : null) ?> >Los Alcazares</option>
                                 <option value="Mil Palmeras" <?php echo($_POST['localidad'] == "Mil Palmeras" ? ' selected="selected"' : null) ?> >Mil Palmeras</option>
+                                <option value="Orihuela Costa" <?php echo($_POST['localidad'] == "Orihuela Costa" ? ' selected="selected"' : null) ?> >Orihuela Costa</option>
+                                <option value="Pilar de la Horadada" <?php echo($_POST['localidad'] == "Pilar de la Horadada" ? ' selected="selected"' : null) ?> >Pilar de la Horadada</option>
                                 <option value="Pinar de Campoverde" <?php echo($_POST['localidad'] == "Pinar de Campoverde" ? ' selected="selected"' : null) ?> >Pinar de Campoverde</option>
+                                <option value="San Javier" <?php echo($_POST['localidad'] == "San Javier" ? ' selected="selected"' : null) ?> >San Javier</option>
+                                <option value="San Miguel de Salinas" <?php echo($row['localidad'] == "San Miguel de Salinas" ? ' selected="selected"' : null) ?> >San Miguel de Salinas</option>
                                 <option value="Torrepacheco" <?php echo($_POST['localidad'] == "Torrepacheco" ? ' selected="selected"' : null) ?> >Torrepacheco</option>
-                                <option value="Dehesa de Campoamor" <?php echo($_POST['localidad'] == "Dehesa de Campoamor" ? ' selected="selected"' : null) ?> >Dehesa de Campoamor</option>
+                                <option value="Torrevieja" <?php echo($_POST['localidad'] == "Torrevieja" ? ' selected="selected"' : null) ?> >Torrevieja</option>
+                                <option value="Valle_del_sol" <?php echo($_POST['localidad'] == "Valle_del_sol" ? ' selected="selected"' : null) ?> >Valle del Sol</option>
                             </select>
 
                             <?php print(Translate('Area:','')); ?>
@@ -225,11 +242,11 @@
                                 <option value="%" <?php echo($_POST['cat'] == "%" ? ' selected="selected"' : null) ?> >Any</option>
                                 <option value="Apartment" <?php echo($_POST['cat'] == "Apartment" ? ' selected="selected"' : null) ?> >Apartment</option>
                                 <option value="Bungalow" <?php echo($_POST['cat'] == "Bungalow" ? ' selected="selected"' : null) ?> >Bungalow</option>
-                                <option value="Town house" <?php echo($_POST['cat'] == "Town house" ? ' selected="selected"' : null) ?> >Town house</option>
                                 <option value="Duplex" <?php echo($_POST['cat'] == "Duplex" ? ' selected="selected"' : null) ?> >Duplex</option>
-                                <option value="Villa" <?php echo($_POST['cat'] == "Villa" ? ' selected="selected"' : null) ?> >Villa</option>
                                 <option value="Finca" <?php echo($_POST['cat'] == "Finca" ? ' selected="selected"' : null) ?> >Finca</option>
                                 <option value="Plot" <?php echo($_POST['cat'] == "Plot" ? ' selected="selected"' : null) ?> >Plot</option>
+                                <option value="Town house" <?php echo($_POST['cat'] == "Town house" ? ' selected="selected"' : null) ?> >Town house</option>
+                                <option value="Villa" <?php echo($_POST['cat'] == "Villa" ? ' selected="selected"' : null) ?> >Villa</option>
                             </select>
 
                             <?php print(Translate('Bedrooms:','')); ?>
@@ -316,37 +333,37 @@
 
 
 
-    <?php
+<?php
 
 
-        // --------------------------------------------------SCRIPT TO WRITE TO LOG-------------------------------------------------------
+// --------------------------------------------------SCRIPT TO WRITE TO LOG-------------------------------------------------------
 
-        // +++++++++++ GET CLIENT IP +++++++++++++++++
-        // +++++++++++ GET CLIENT IP +++++++++++++++++
-        if (getenv("HTTP_CLIENT_IP")){
-            $ip = getenv("HTTP_CLIENT_IP");
-        }
-        else if(getenv("HTTP_X_FORWARDED_FOR")){
-            $ip = getenv("HTTP_X_FORWARDED_FOR");
-        }
-        else if(getenv("REMOTE_ADDR")){
-            $ip = getenv("REMOTE_ADDR");
-        }else{
-            $ip = "UNKNOWN";
-        }
-        // +++++++++++ GET CLIENT IP +++++++++++++++++
-
-
-        $fopen = fopen("Log/log.txt", "a");
-
-        $write = date('d.m.Y') . "  ||  " . date('H.i.s') . "  ||  " . $ip . "\r\n";
+// +++++++++++ GET CLIENT IP +++++++++++++++++
+// +++++++++++ GET CLIENT IP +++++++++++++++++
+if (getenv("HTTP_CLIENT_IP")){
+    $ip = getenv("HTTP_CLIENT_IP");
+}
+else if(getenv("HTTP_X_FORWARDED_FOR")){
+    $ip = getenv("HTTP_X_FORWARDED_FOR");
+}
+else if(getenv("REMOTE_ADDR")){
+    $ip = getenv("REMOTE_ADDR");
+}else{
+    $ip = "UNKNOWN";
+}
+// +++++++++++ GET CLIENT IP +++++++++++++++++
 
 
+$fopen = fopen("Log/log.txt", "a");
 
-        fwrite($fopen, $write);
-        fclose($fopen);
+$write = date('d.m.Y') . "  ||  " . date('H.i.s') . "  ||  " . $ip . "\r\n";
 
-        session_write_close();
 
-        // --------------------------------------------------SCRIPT TO WRITE TO LOG-------------------------------------------------------
-    ?>
+
+fwrite($fopen, $write);
+fclose($fopen);
+
+session_write_close();
+
+// --------------------------------------------------SCRIPT TO WRITE TO LOG-------------------------------------------------------
+?>

@@ -209,7 +209,9 @@
 
         <br><br>
 
-        Descripcion:</br><textarea rows="10" cols="80" name="desc_eng" /><?php echo $row['desc_eng'] ?></textarea></br></br>
+        Descripcion English:</br><textarea rows="10" cols="80" name="desc_eng" /><?php echo $row['desc_eng'] ?></textarea></br></br>
+
+        Descripcion Español:</br><textarea rows="10" cols="80" name="desc_es" /><?php echo $row['desc_es'] ?></textarea></br></br>
 
         Colaborador <input type="checkbox" name="colab" value="1" style="width:1em!important;" <?php echo($row['colab'] == "1" ? ' checked="checked"' : null) ?> >
         <br><br>

@@ -1,11 +1,12 @@
 <?php
-    session_start();
-    include 'translator.php';
-    if ($_GET['lang']=='es') {
-        header("Content-Type: text/html; charset=ISO-8859-1");
-    } else {
-        header("Content-Type: text/html; charset=UTF-8");
-    }
+session_start();
+include 'translator.php';
+if ($_GET['lang']=='es') {
+    //header("Content-Type: text/html; charset=ISO-8859-1");
+    header("Content-Type: text/html; charset=UTF-8");
+} else {
+    header("Content-Type: text/html; charset=UTF-8");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -18,32 +19,32 @@
         <meta name="description" content="CMproperties" />
         <link href="stylesheet_v2.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="js/swfobject.js"></script>
-        <script type="text/javascript">
+<script type="text/javascript">
 
-            var flashvars = {};
-            flashvars.cssSource = "piecemaker.css";
-            flashvars.xmlSource = "photo_list.xml";
+var flashvars = {};
+flashvars.cssSource = "piecemaker.css";
+flashvars.xmlSource = "photo_list.xml";
 
-            var params = {};
-            params.play = "true";
-            params.menu = "false";
-            params.scale = "showall";
-            params.wmode = "transparent";
-            params.allowfullscreen = "true";
-            params.allowscriptaccess = "always";
-            params.allownetworking = "all";
+var params = {};
+params.play = "true";
+params.menu = "false";
+params.scale = "showall";
+params.wmode = "transparent";
+params.allowfullscreen = "true";
+params.allowscriptaccess = "always";
+params.allownetworking = "all";
 
-            swfobject.embedSWF('piecemaker.swf', 'piecemaker', '940', '420', '10', null, flashvars,    
-            params, null);
+swfobject.embedSWF('piecemaker.swf', 'piecemaker', '940', '420', '10', null, flashvars,    
+    params, null);
 
-        </script>
-        <script language="javascript" type="text/javascript">
-            function clearText(field)
-            {
-                    if (field.defaultValue == field.value) field.value = '';
-                    else if (field.value == '') field.value = field.defaultValue;
-            }
-        </script>
+</script>
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
     </head>
 
 
@@ -61,11 +62,11 @@
         <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=fr" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/french.jpeg"></a>
         <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=es" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/spanish.png"></a>
     </div>
-    <?php
+<?php
 
-        $_SESSION['lang'] = $_GET['lang'];
+$_SESSION['lang'] = $_GET['lang'];
 
-    ?>
+?>
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ /TRANSLATOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 

@@ -19,6 +19,7 @@
     $cat = $_POST['cat'];
     $hab = $_POST['hab'];
     $desc_eng = $_POST['desc_eng'];
+    $desc_es = $_POST['desc_es'];
     $zona = $_POST['zona'];
     $precio = $_POST['precio'];
     $prov = $_POST['provincia'];
@@ -103,7 +104,7 @@
             }
         }
 
-        mysql_query("INSERT INTO Casas (localidad,wc,cat,hab,desc_eng,zona,precio,provincia,ref,titulo,caract,map_search,parking,comunidad,ibi,m_const,m_parcela,year,reformado,heating,pool,colab,nueva,banco) VALUES ('$localidad','$wc','$cat','$hab','$desc_eng','$zona','$precio','$prov','$ref','$titulo','$caracteristicas','$map_search','$parking','$comunidad','$ibi','$m_const','$m_parcela','$year','$reformado','$heating','$pool','$colab','$nueva','$banco')");
+        mysql_query("INSERT INTO Casas (localidad,wc,cat,hab,desc_eng,desc_es,zona,precio,provincia,ref,titulo,caract,map_search,parking,comunidad,ibi,m_const,m_parcela,year,reformado,heating,pool,colab,nueva,banco) VALUES ('$localidad','$wc','$cat','$hab','$desc_eng','$desc_es','$zona','$precio','$prov','$ref','$titulo','$caracteristicas','$map_search','$parking','$comunidad','$ibi','$m_const','$m_parcela','$year','$reformado','$heating','$pool','$colab','$nueva','$banco')");
 
 
 
