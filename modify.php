@@ -312,7 +312,7 @@
 <br>
 <br>
 <br>
-Visible: <input type="checkbox" name="visible" value="1" style="width:1em!important;" <?php echo($row['visible'] == "1" ? ' checked="checked"' : null) ?>
+Visible: <input type="checkbox" name="visible" style="width:1em!important;" <?php echo($row['visible'] == "1" ? ' checked="checked"' : null) ?>
 <br>
 <br>
 <br>

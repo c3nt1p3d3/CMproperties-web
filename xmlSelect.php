@@ -115,7 +115,7 @@
 
                         mysql_select_db("cmproperties", $db);
 
-                        $query = mysql_query("SELECT * FROM `Casas` ORDER BY ref");
+                        $query = mysql_query("SELECT * FROM `Casas` WHERE `visible` LIKE 1 ORDER BY ref");
 
                         $counter = 0;
 
@@ -204,7 +204,7 @@
 
                             mysql_select_db("cmproperties", $db);
 
-                            $query = mysql_query("SELECT * FROM `Casas` ORDER BY ref");
+                            $query = mysql_query("SELECT * FROM `Casas` WHERE `visible` LIKE 1 ORDER BY ref");
 
                             $counter = 0;
 
@@ -267,7 +267,7 @@
 
                             mysql_select_db("cmproperties", $db);
 
-                            $query = mysql_query("SELECT * FROM `Casas` ORDER BY ref");
+                            $query = mysql_query("SELECT * FROM `Casas` WHERE `visible` LIKE 1 ORDER BY ref");
 
                             $counter = 0;
 

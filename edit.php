@@ -39,6 +39,7 @@ $year = $_POST['year'];
 $reformado = $_POST['reformado'];
 $heating = $_POST['heating'];
 $pool = $_POST['pool'];
+$visible = $_POST['visible'];
 
 
 
@@ -107,7 +108,7 @@ move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $ref . "/" 
 //mysql_query("UPDATE Casas SET localidad=".$localidad.",'$wc','$cat','$hab','$desc','$zona','$precio','$prov','$ref','$titulo','$caracteristicas')");
 
 mysql_query("UPDATE Casas 
-SET comunidad='$comunidad',ibi='$ibi',m_const='$m_const',m_parcela='$m_parcela',year='$year',reformado='$reformado',heating='$heating',pool='$pool',titulo='$titulo',caract='$caracteristicas',hab='$hab',wc='$wc',desc_eng='$desc_eng',desc_es='$desc_es',localidad='$localidad',cat='$cat',precio='$precio',zona='$zona',provincia='$prov',map_search='$map_search',sea_views='$sea_views',parking='$parking',sold='$sold',colab='$colab',reserved='$reserved' WHERE ref='$ref'");
+SET comunidad='$comunidad',ibi='$ibi',m_const='$m_const',m_parcela='$m_parcela',year='$year',reformado='$reformado',heating='$heating',pool='$pool',titulo='$titulo',caract='$caracteristicas',hab='$hab',wc='$wc',desc_eng='$desc_eng',desc_es='$desc_es',localidad='$localidad',cat='$cat',precio='$precio',zona='$zona',provincia='$prov',map_search='$map_search',sea_views='$sea_views',parking='$parking',sold='$sold',colab='$colab',reserved='$reserved',visible='$visible' WHERE ref='$ref'");
 
 ?>
 
