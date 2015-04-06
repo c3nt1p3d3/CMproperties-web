@@ -308,6 +308,17 @@
         Images to ADD: <input type="file" name="fileToUpload[]" multiple="" /></br></br>
 
 
+<br>
+<br>
+<br>
+<br>
+Visible: <input type="checkbox" name="visible" value="1" style="width:1em!important;" <?php echo($row['visible'] == "1" ? ' checked="checked"' : null) ?>
+<br>
+<br>
+<br>
+<br>
+
+
         <input type="submit" name="edit" value="edit">
 
 

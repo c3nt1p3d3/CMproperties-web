@@ -364,9 +364,9 @@ if ($_GET['order_by'] == ""){
 
 
 if ($pmax == ""){
-    $query = mysql_query("SELECT * FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "' AND `sea_views` LIKE '" . $sea_views . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `cat` LIKE '" . $cat . "' AND `ref` LIKE '" . $ref . "' ORDER BY " . $order_by . " limit " . $max . "");
+    $query = mysql_query("SELECT * FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "' AND `sea_views` LIKE '" . $sea_views . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `cat` LIKE '" . $cat . "' AND `ref` LIKE '" . $ref . "' AND `visible` LIKE '1' ORDER BY " . $order_by . " limit " . $max . "");
 } else {
-    $query = mysql_query("SELECT * FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "' AND `sea_views` LIKE '" . $sea_views . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `cat` LIKE '" . $cat . "'  AND `precio` < '" . $pmax . "' AND `ref` LIKE '" . $ref . "' ORDER BY " . $order_by . " limit " . $max . "");
+    $query = mysql_query("SELECT * FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "' AND `sea_views` LIKE '" . $sea_views . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `cat` LIKE '" . $cat . "'  AND `precio` < '" . $pmax . "' AND `ref` LIKE '" . $ref . "' AND `visible` LIKE '1' ORDER BY " . $order_by . " limit " . $max . "");
 }
 
 
@@ -418,7 +418,7 @@ while ($row = mysql_fetch_array($query))
 
 // ***************************************************************** How many houses there are with the restrictions given ******************************************************
 
-$data = mysql_query("SELECT localidad, precio, ref, hab, wc, cat, sold, reserved FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `sea_views` LIKE '" . $sea_views . "' AND `cat` LIKE '" . $cat ."' AND `ref` LIKE '" . $ref . "' ORDER BY " . $order_by . "");
+$data = mysql_query("SELECT localidad, precio, ref, hab, wc, cat, sold, reserved FROM `Casas` WHERE `localidad` LIKE '" . $localidad . "' AND `hab` LIKE '" . $hab . "'AND `zona` LIKE '" . $zona . "' AND `wc` LIKE '" . $wc . "' AND `sea_views` LIKE '" . $sea_views . "' AND `cat` LIKE '" . $cat ."' AND `ref` LIKE '" . $ref . "' AND `visible` LIKE '1' ORDER BY " . $order_by . "");
 
 
 $rows = mysql_num_rows($data);

@@ -30,9 +30,9 @@ $sure = $_POST['sure'];
 if ($sure == "yes"){
 
 /*mysql_query("DELETE FROM Rental WHERE ref='".$ref."'");*/
-mysql_query("DELETE FROM Rental WHERE ref LIKE '$ref'");
+mysql_query("DELETE FROM Rental WHERE ref='$ref'");
 
-mysql_query("DELETE FROM RentalImages WHERE ref LIKE '$ref'");
+mysql_query("DELETE FROM RentalImages WHERE ref='$ref'");
 
 $files = "uploads/" . $ref . "/*";
 $folder = "uploads/".$ref."/";

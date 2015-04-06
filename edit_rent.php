@@ -13,31 +13,57 @@ mysql_select_db("cmproperties", $db);
 
 
 
-$localidad = $_POST['localidad'];
-$wc = $_POST['wc'];
-$cat = $_POST['cat'];
-$hab = $_POST['hab'];
-$desc_eng = $_POST['desc_eng'];
-$zona = $_POST['zona'];
-$precio = $_POST['precio'];
-$prov = $_POST['provincia'];
-$ref = $_POST['ref'];
-$titulo = $_POST['titulo'];
-$map_search = $_POST['map_search'];
-$parking = $_POST['parking'];
-$colab = $_POST['colab'];
+    $localidad = $_POST['localidad'];
+    $wc = $_POST['wc'];
+    $cat = $_POST['cat'];
+    $hab = $_POST['hab'];
+    $desc_eng = $_POST['desc_eng'];
+    $zona = $_POST['zona'];
+    //$precio = $_POST['precio'];
+    $prov = $_POST['provincia'];
+    $ref = $_POST['ref'];
+    $titulo = $_POST['titulo'];
+    $map_search = $_POST['map_search'];
+    $parking = $_POST['parking'];
+    $colab = $_POST['colab'];
 
-$sold = $_POST['sold'];
-$reserved = $_POST['reserved'];
+    $m_const = $_POST['m_const'];
+    $m_parcela = $_POST['m_parcela'];
+    $year = $_POST['year'];
+    $reformado = $_POST['reformado'];
+    $heating = $_POST['heating'];
+    $pool = $_POST['pool'];
+    $modalidad = $_POST['modalidad'];
+    $mes_dispon = $_POST['mes_dispon[]'];
+    $pm = $_POST['pm[]'];
+    $pq1 = $_POST['pq1[]'];
+    $pq2 = $_POST['pq2[]'];
 
-$comunidad = $_POST['comunidad'];
-$ibi = $_POST['ibi'];
-$m_const = $_POST['m_const'];
-$m_parcela = $_POST['m_parcela'];
-$year = $_POST['year'];
-$reformado = $_POST['reformado'];
-$heating = $_POST['heating'];
-$pool = $_POST['pool'];
+
+
+
+    for($i=0;$i<12;$i++){
+        if($_POST['mes_dispon'][$i] == ""){
+            break;
+        }
+        if($i!=0){
+            $tramalarga = $tramalarga.",";
+        }
+        $tramalarga = $tramalarga.$_POST['mes_dispon'][$i];
+        $tramalarga = $tramalarga.",".$_POST['pm'][$i];
+        $tramalarga = $tramalarga.",".$_POST['pq1'][$i];
+        $tramalarga = $tramalarga.",".$_POST['pq2'][$i];
+    }
+
+    echo $tramlarga;
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+
+
+    $precios = $tramalarga;
+
 
 
 
@@ -103,11 +129,7 @@ move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $ref . "/" 
 
 
 
-//mysql_query("UPDATE Rental SET localidad=".$localidad.",'$wc','$cat','$hab','$desc','$zona','$precio','$prov','$ref','$titulo','$caracteristicas')");
-
-mysql_query("UPDATE Rental 
-SET comunidad='$comunidad',ibi='$ibi',m_const='$m_const',m_parcela='$m_parcela',year='$year',reformado='$reformado',heating='$heating',pool='$pool',titulo='$titulo',caract='$caracteristicas',hab='$hab',wc='$wc',desc_eng='$desc_eng',localidad='$localidad',cat='$cat',precio='$precio',zona='$zona',provincia='$prov',map_search='$map_search',sea_views='$sea_views',parking='$parking',sold='$sold',colab='$colab',reserved='$reserved' WHERE ref='$ref'");
-
+mysql_query("UPDATE Rental SET localidad='$localidad',wc='$wc',cat='$cat',hab='$hab',desc_eng='$desc_eng',zona='$zona',price='$precios',provincia='$prov',ref='$ref',titulo='$titulo',caract='$caracteristicas',map_search='$map_search',parking='$parking',mconst='$m_const',m_parcela='$m_parcela',year='$year',reformado='$reformado',heating='$heating',pool='$pool',colab='$colab',modalidad='$modalidad' WHERE ref='$ref'");
 ?>
 
 
@@ -115,7 +137,7 @@ SET comunidad='$comunidad',ibi='$ibi',m_const='$m_const',m_parcela='$m_parcela',
 <script type="text/javascript">
 
 function redirecting(){
-    window.location = "change.php"
+    window.location = "change_rent.php"
 }
 </script>
 

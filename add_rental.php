@@ -6,6 +6,7 @@
 
 <?php
 
+
     set_time_limit(0);
 
 
@@ -19,8 +20,6 @@
     $cat = $_POST['cat'];
     $hab = $_POST['hab'];
     $desc_eng = $_POST['desc_eng'];
-    $precio_quin = $_POST['precio_quin'];
-    $precio_mes = $_POST['precio_mes'];
     $zona = $_POST['zona'];
     //$precio = $_POST['precio'];
     $prov = $_POST['provincia'];
@@ -37,7 +36,45 @@
     $heating = $_POST['heating'];
     $pool = $_POST['pool'];
     $modalidad = $_POST['modalidad'];
+    $mes_dispon = $_POST['mes_dispon[]'];
+    $pm = $_POST['pm[]'];
+    $pq1 = $_POST['pq1[]'];
+    $pq2 = $_POST['pq2[]'];
 
+/*
+echo $m_counter;
+    for($i=0;$i<$12;$i++){
+        if($mes_dispon[$i]==""){
+            break;
+        }
+        $tramalarga = $tramalarga.$mes_dispon[$i];
+        $tramalarga = $tramalarga.$pm[$i];
+        $tramalarga = $tramalarga.$pq1[$i];
+        $tramalarga = $tramalarga.$pq2[$i];
+    }
+ */
+
+    for($i=0;$i<12;$i++){
+        if($_POST['mes_dispon'][$i] == ""){
+            break;
+        }
+        if($i!=0){
+            $tramalarga = $tramalarga.",";
+        }
+        $tramalarga = $tramalarga.$_POST['mes_dispon'][$i];
+        $tramalarga = $tramalarga.",".$_POST['pm'][$i];
+        $tramalarga = $tramalarga.",".$_POST['pq1'][$i];
+        $tramalarga = $tramalarga.",".$_POST['pq2'][$i];
+    }
+
+    echo $tramlarga;
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+
+
+    $precios = $tramalarga;
 
 
 
@@ -101,7 +138,7 @@
             }
         }
 
-        mysql_query("INSERT INTO Rental (localidad,wc,cat,hab,desc_eng,zona,precio_quin,precio_mes,provincia,ref,titulo,caract,map_search,parking,mconst,m_parcela,year,reformado,heating,pool,colab,modalidad) VALUES ('$localidad','$wc','$cat','$hab','$desc_eng','$zona','$precio_quin','$precio_mes','$prov','$ref','$titulo','$caracteristicas','$map_search','$parking','$m_const','$m_parcela','$year','$reformado','$heating','$pool','$colab','$modalidad')");
+        mysql_query("INSERT INTO Rental (localidad,wc,cat,hab,desc_eng,zona,price,provincia,ref,titulo,caract,map_search,parking,mconst,m_parcela,year,reformado,heating,pool,colab,modalidad) VALUES ('$localidad','$wc','$cat','$hab','$desc_eng','$zona','$precios','$prov','$ref','$titulo','$caracteristicas','$map_search','$parking','$m_const','$m_parcela','$year','$reformado','$heating','$pool','$colab','$modalidad')");
 
 
 
@@ -188,5 +225,4 @@
     mysql_close($db);
 
     set_time_limit(30);
-
 ?>

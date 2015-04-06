@@ -9,22 +9,22 @@ require('login.php');
 
 <script type="text/javascript">
 
-      var flashvars = {};
-      flashvars.cssSource = "piecemaker.css";
-      flashvars.xmlSource = "photo_list.xml";
-		
-      var params = {};
-      params.play = "true";
-      params.menu = "false";
-      params.scale = "showall";
-      params.wmode = "transparent";
-      params.allowfullscreen = "true";
-      params.allowscriptaccess = "always";
-      params.allownetworking = "all";
-	  
-      swfobject.embedSWF('piecemaker.swf', 'piecemaker', '940', '420', '10', null, flashvars,    
-      params, null);
-    
+var flashvars = {};
+flashvars.cssSource = "piecemaker.css";
+flashvars.xmlSource = "photo_list.xml";
+
+var params = {};
+params.play = "true";
+params.menu = "false";
+params.scale = "showall";
+params.wmode = "transparent";
+params.allowfullscreen = "true";
+params.allowscriptaccess = "always";
+params.allownetworking = "all";
+
+swfobject.embedSWF('piecemaker.swf', 'piecemaker', '940', '420', '10', null, flashvars,    
+    params, null);
+
 </script>
 
 <!--//////***************************** CHOOSE ONE OF THE 3 PIROBOX STYLES**************************************** \\\\\\\-->
@@ -36,16 +36,16 @@ require('login.php');
         <script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>
         <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="js/jquery.ennui.contentslider.js"></script>
-        <script type="text/javascript">
-            $(function() {
-            $('#one').ContentSlider({
-            width : '960px',
-              height : '200px',
-          speed : 400,
+<script type="text/javascript">
+$(function() {
+    $('#one').ContentSlider({
+        width : '960px',
+            height : '200px',
+            speed : 400,
             easing : 'easeOutSine'
-            });
-            });
-        </script>
+    });
+});
+</script>
         <script src="js/jquery.chili-2.2.js" type="text/javascript"></script>
         <script src="js/chili/recipes.js" type="text/javascript"></script>
 <!--////// INCLUDE THE JS AND PIROBOX OPTION IN YOUR HEADER  \\\\\\\-->
@@ -53,17 +53,17 @@ require('login.php');
 <script type="text/javascript" src="js/piroBox.1_2.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-  $().piroBox({
-      my_speed: 600, //animation speed
-      bg_alpha: 0.5, //background opacity
-      radius: 4, //caption rounded corner
-      scrollImage : false, // true == image follows the page, false == image remains in the same open position
-      pirobox_next : 'piro_next', // Nav buttons -> piro_next == inside piroBox , piro_next_out == outside piroBox
-      pirobox_prev : 'piro_prev',// Nav buttons -> piro_prev == inside piroBox , piro_prev_out == outside piroBox
-      close_all : '.piro_close',// add class .piro_overlay(with comma)if you want overlay click close piroBox
-      slideShow : '', // just delete slideshow between '' if you don't want it.
-      slideSpeed : 4 //slideshow duration in seconds(3 to 6 Recommended)
-  });
+    $().piroBox({
+        my_speed: 600, //animation speed
+            bg_alpha: 0.5, //background opacity
+            radius: 4, //caption rounded corner
+            scrollImage : false, // true == image follows the page, false == image remains in the same open position
+            pirobox_next : 'piro_next', // Nav buttons -> piro_next == inside piroBox , piro_next_out == outside piroBox
+            pirobox_prev : 'piro_prev',// Nav buttons -> piro_prev == inside piroBox , piro_prev_out == outside piroBox
+            close_all : '.piro_close',// add class .piro_overlay(with comma)if you want overlay click close piroBox
+            slideShow : '', // just delete slideshow between '' if you don't want it.
+            slideSpeed : 4 //slideshow duration in seconds(3 to 6 Recommended)
+    });
 });
 </script>
 <!--//////********************************************** END *************************************************************\\\\\\\-->
@@ -115,22 +115,22 @@ $query_first_only = mysql_query("SELECT * FROM `RentalImages` WHERE `ref` LIKE '
 
 $counter = "0";
 while ($row2 = mysql_fetch_array($query2))
-  {
-  while ($row_first = mysql_fetch_array($query_first_only))
+{
+    while ($row_first = mysql_fetch_array($query_first_only))
     {
-    $counter ++;
-    echo "<a href='" .$row_first['imgpath'] . "' class='pirobox_gall' title='Photo " . $counter . "'><img style='border: 3px solid white;' src='" . $row_first['imgpath'] . "' width='95%' height='100%' alt='Image Not Found' /></a>";
-    echo "</br></br>";
+        $counter ++;
+        echo "<a href='" .$row_first['imgpath'] . "' class='pirobox_gall' title='Photo " . $counter . "'><img style='border: 3px solid white;' src='" . $row_first['imgpath'] . "' width='95%' height='100%' alt='Image Not Found' /></a>";
+        echo "</br></br>";
     }
-  while ($row3 = mysql_fetch_array($query3))
+    while ($row3 = mysql_fetch_array($query3))
     {
-    $counter ++;
-    echo "<a href='" . $row3['imgpath'] . "' class='pirobox_gall' title='Photo " . $counter . "'><img style='margin: 2px 2px 2px 2px; border: 2px solid white;' src='" . $row3['imgpath'] . "' width='31%' height='25%' alt='Image Not Found' ></a>";
+        $counter ++;
+        echo "<a href='" . $row3['imgpath'] . "' class='pirobox_gall' title='Photo " . $counter . "'><img style='margin: 2px 2px 2px 2px; border: 2px solid white;' src='" . $row3['imgpath'] . "' width='31%' height='25%' alt='Image Not Found' ></a>";
     }
-  }
+}
 
-  echo '</div></p>'
- 
+echo '</div></p>'
+
 
 ?>
 
@@ -156,7 +156,91 @@ Localidad:<select name="localidad" class="search">
 </select>
 <br/><br/>
 
-Precio:<input type="text" name="precio" value="<?php echo $row['precio'] ?>"/></br></br>
+
+
+
+<!-- SCRIPT TO ADD MONTHS TO PRICE INPUT -->
+<script>
+var counter = 1;
+var limit = 12;
+function addInput(divName){
+    if (counter == limit)  {
+        alert("You have reached the limit of adding " + counter + " inputs");
+    }
+    else {
+        var newdiv = document.createElement('div');
+        newdiv.innerHTML = '<select name="mes_dispon[]"> <option value="1">Enero</option> <option value="2">Febrero</option>'+
+            '<option value="3">Marzo</option> <option value="4">Abril</option> <option value="5">Mayo</option> <option value="6">Junio</option>'+
+            '<option value="7">Julio</option> <option value="8">Agosto</option> <option value="9">Septiembre</option> <option value="10">Octubre</option>'+
+            '<option value="11">Noviembre</option> <option value="12">Diciembre</option> </select>'+
+            'Mes:<input type="text" name="pm[]" /> Quincena 1:<input type="text" name="pq1[]" /> Quincena 2:<input type="text" name="pq2[]" />';
+        document.getElementById(divName).appendChild(newdiv);
+        counter++;
+    }
+}
+</script>
+<!-- SCRIPT TO ADD MONTHS TO PRICE INPUT -->
+
+
+
+<?php
+    $prices = $row['price'];
+$prices = explode(",",$prices);
+$month_array = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Septiembre","Octubre","Noviembre","Diciembre");
+
+
+for($j=0;$j<count($prices);$j=$j+4){
+    for($m=0;$m<12;$m++){
+        if($prices[$j]==$m){
+            echo $month_array[$m];
+        }
+    }
+    echo "//month=> ".$prices[$j+1]."E";
+    echo "//q1=> ".$prices[$j+2]."E";
+    echo "//q2=> ".$prices[$j+3]."E";
+    echo "<br>";
+}
+
+?>
+
+
+<br><br>
+
+<div id="precios">
+        Precios:<br>
+<select name="mes_dispon[]">
+            <option value="1">Enero</option>
+            <option value="2">Febrero</option>
+            <option value="3">Marzo</option>
+            <option value="4">Abril</option>
+            <option value="5">Mayo</option>
+            <option value="6">Junio</option>
+            <option value="7">Julio</option>
+            <option value="8">Agosto</option>
+            <option value="9">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+</select>
+Mes:<input type="text" name="pm[]" />
+Quincena 1:<input type="text" name="pq1[]" />
+Quincena 2:<input type="text" name="pq2[]" />
+</div>
+<input type="button" value="Add another text input" onClick="addInput('precios');">
+
+
+
+<br><br>
+
+        Modalidad:<select name="modalidad">
+            <option value="1" <?php echo($row['modalidad'] == "1" ? ' selected="selected"' : null) ?> >Vacacional</option>
+            <option value="2" <?php echo($row['modalidad'] == "2" ? ' selected="selected"' : null) ?> >Larga Temporada</option>
+        </select>
+
+        <br><br>
+
+
+
 
 Zona:<input type="text" name="zona" value="<?php echo $row['zona'] ?>"/></br></br>
 
@@ -209,6 +293,11 @@ Reserved: <input type="checkbox" name="reserved" value="1" style="width:1em!impo
 <br><br>
 
 Descripcion:</br><textarea rows="10" cols="80" name="desc_eng" /><?php echo $row['desc_eng'] ?></textarea></br></br>
+
+<br>
+<br>
+
+Descripcion:</br><textarea rows="10" cols="80" name="desc_spa" /><?php echo $row['desc_spa'] ?></textarea></br></br>
 
 Colaborador <input type="checkbox" name="colab" value="1" style="width:1em!important;" <?php echo($row['colab'] == "1" ? ' checked="checked"' : null) ?> >
 <br><br>
@@ -273,20 +362,20 @@ $query_first_only = mysql_query("SELECT * FROM `RentalImages` WHERE `ref` LIKE '
 $img_count = 0;
 while ($row2 = mysql_fetch_array($query2))
 {
-	while ($row_first = mysql_fetch_array($query_first_only))
+    while ($row_first = mysql_fetch_array($query_first_only))
     {
-		$img_count++;
-		list(,,$img_name) = explode('/', $row2['imgpath'], 4);
-		echo "<input type='checkbox' name='img_to_delete[]' id='img_to_delete[]' value='".$row2['imgpath']."' /> ".$img_name;
-		echo "</br>";
-	}
-	while ($row3 = mysql_fetch_array($query3))
-	{
-		$img_count++;
-		list(,,$img_name) = explode('/', $row3['imgpath'], 4);
-		echo "<input type='checkbox' name='img_to_delete[]' id='img_to_delete[]' value='".$row3['imgpath']."' /> ".$img_name;
-		echo "</br>";
-	}
+        $img_count++;
+        list(,,$img_name) = explode('/', $row2['imgpath'], 4);
+        echo "<input type='checkbox' name='img_to_delete[]' id='img_to_delete[]' value='".$row2['imgpath']."' /> ".$img_name;
+        echo "</br>";
+    }
+    while ($row3 = mysql_fetch_array($query3))
+    {
+        $img_count++;
+        list(,,$img_name) = explode('/', $row3['imgpath'], 4);
+        echo "<input type='checkbox' name='img_to_delete[]' id='img_to_delete[]' value='".$row3['imgpath']."' /> ".$img_name;
+        echo "</br>";
+    }
 }
 
 
@@ -329,87 +418,87 @@ var iw;
 var drag=false;
 
 function xz() {
-ll = new google.maps.LatLng(20.0, -10.0);
-zoom=2;
-var mO = {
-scaleControl:true,
-zoom:zoom,
-zoomControl:true,
-zoomControlOptions: {style:google.maps.ZoomControlStyle.LARGE},
-center: ll,
-disableDoubleClickZoom:true,
-mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-map = new google.maps.Map(document.getElementById("map"), mO);
-map.setTilt(0);
-map.panTo(ll);
-marker = new google.maps.Marker({position:ll,map:map,draggable:true,title:'Marker is Draggable'});   
+    ll = new google.maps.LatLng(20.0, -10.0);
+    zoom=2;
+    var mO = {
+        scaleControl:true,
+            zoom:zoom,
+            zoomControl:true,
+            zoomControlOptions: {style:google.maps.ZoomControlStyle.LARGE},
+            center: ll,
+            disableDoubleClickZoom:true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map"), mO);
+    map.setTilt(0);
+    map.panTo(ll);
+    marker = new google.maps.Marker({position:ll,map:map,draggable:true,title:'Marker is Draggable'});   
 
-google.maps.event.addListener(marker, 'click', function(mll) {
-gC(mll.latLng);
-var html= "<div style='color:#000;background-color:#fff;padding:5px;width:150px;'><p>Latitude - Longitude:<br />" + String(mll.latLng.toUrlValue()) + "<br /><br />Lat: " + ls +  "&#176; " + lm +  "&#39; "  + ld + "&#34;<br />Long: " + lgs +  "&#176; " + lgm +  "&#39; " + lgd + "&#34;</p></div>";
-iw = new google.maps.InfoWindow({content:html});
-iw.open(map,marker);
-});
-google.maps.event.addListener(marker, 'dragstart', function() {if (iw){iw.close();}});
+    google.maps.event.addListener(marker, 'click', function(mll) {
+        gC(mll.latLng);
+        var html= "<div style='color:#000;background-color:#fff;padding:5px;width:150px;'><p>Latitude - Longitude:<br />" + String(mll.latLng.toUrlValue()) + "<br /><br />Lat: " + ls +  "&#176; " + lm +  "&#39; "  + ld + "&#34;<br />Long: " + lgs +  "&#176; " + lgm +  "&#39; " + lgd + "&#34;</p></div>";
+        iw = new google.maps.InfoWindow({content:html});
+        iw.open(map,marker);
+    });
+    google.maps.event.addListener(marker, 'dragstart', function() {if (iw){iw.close();}});
 
-google.maps.event.addListener(marker, 'dragend', function(event) {
-posset = 1;
-if (map.getZoom() < 10){map.setZoom(10);}
-map.setCenter(event.latLng);
-computepos(event.latLng);
-drag=true;
-setTimeout(function(){drag=false;},250);
-});
+    google.maps.event.addListener(marker, 'dragend', function(event) {
+        posset = 1;
+        if (map.getZoom() < 10){map.setZoom(10);}
+        map.setCenter(event.latLng);
+        computepos(event.latLng);
+        drag=true;
+        setTimeout(function(){drag=false;},250);
+    });
 
-google.maps.event.addListener(map, 'click', function(event) {
-if (drag){return;}
-posset = 1;
-fc(event.latLng) ;
-if (map.getZoom() < 10){map.setZoom(10);}
-map.panTo(event.latLng);
-computepos(event.latLng);
-});
+    google.maps.event.addListener(map, 'click', function(event) {
+        if (drag){return;}
+    posset = 1;
+    fc(event.latLng) ;
+    if (map.getZoom() < 10){map.setZoom(10);}
+    map.panTo(event.latLng);
+    computepos(event.latLng);
+    });
 
 }
 
 function computepos (point)
 {
-var latA = Math.abs(Math.round(point.lat() * 1000000.));
-var lonA = Math.abs(Math.round(point.lng() * 1000000.));
-if(point.lat() < 0)
-{
-  var ls = '-' + Math.floor((latA / 1000000)).toString();
-}
-else
-{
-  var ls = Math.floor((latA / 1000000)).toString();
-}
-var lm = Math.floor(((latA/1000000) - Math.floor(latA/1000000)) * 60).toString();
-var ld = ( Math.floor(((((latA/1000000) - Math.floor(latA/1000000)) * 60) - Math.floor(((latA/1000000) - Math.floor(latA/1000000)) * 60)) * 100000) *60/100000 ).toString();
-if(point.lng() < 0)
-{
-  var lgs = '-' + Math.floor((lonA / 1000000)).toString();
-}
-else
-{
-  var lgs = Math.floor((lonA / 1000000)).toString();
-}
-var lgm = Math.floor(((lonA/1000000) - Math.floor(lonA/1000000)) * 60).toString();
-var lgd = ( Math.floor(((((lonA/1000000) - Math.floor(lonA/1000000)) * 60) - Math.floor(((lonA/1000000) - Math.floor(lonA/1000000)) * 60)) * 100000) *60/100000 ).toString();
-document.getElementById("map_search").value=point.lat().toFixed(6)+", "+point.lng().toFixed(6);
-document.getElementById("latboxm").value=ls;
-document.getElementById("latboxmd").value=lm;
-document.getElementById("latboxms").value=ld;
-document.getElementById("lonbox").value=point.lng().toFixed(6);
-document.getElementById("lonboxm").value=lgs;
-document.getElementById("lonboxmd").value=lgm;
-document.getElementById("lonboxms").value=lgd;
+    var latA = Math.abs(Math.round(point.lat() * 1000000.));
+    var lonA = Math.abs(Math.round(point.lng() * 1000000.));
+    if(point.lat() < 0)
+    {
+        var ls = '-' + Math.floor((latA / 1000000)).toString();
+    }
+    else
+    {
+        var ls = Math.floor((latA / 1000000)).toString();
+    }
+    var lm = Math.floor(((latA/1000000) - Math.floor(latA/1000000)) * 60).toString();
+    var ld = ( Math.floor(((((latA/1000000) - Math.floor(latA/1000000)) * 60) - Math.floor(((latA/1000000) - Math.floor(latA/1000000)) * 60)) * 100000) *60/100000 ).toString();
+    if(point.lng() < 0)
+    {
+        var lgs = '-' + Math.floor((lonA / 1000000)).toString();
+    }
+    else
+    {
+        var lgs = Math.floor((lonA / 1000000)).toString();
+    }
+    var lgm = Math.floor(((lonA/1000000) - Math.floor(lonA/1000000)) * 60).toString();
+    var lgd = ( Math.floor(((((lonA/1000000) - Math.floor(lonA/1000000)) * 60) - Math.floor(((lonA/1000000) - Math.floor(lonA/1000000)) * 60)) * 100000) *60/100000 ).toString();
+    document.getElementById("map_search").value=point.lat().toFixed(6)+", "+point.lng().toFixed(6);
+    document.getElementById("latboxm").value=ls;
+    document.getElementById("latboxmd").value=lm;
+    document.getElementById("latboxms").value=ld;
+    document.getElementById("lonbox").value=point.lng().toFixed(6);
+    document.getElementById("lonboxm").value=lgs;
+    document.getElementById("lonboxmd").value=lgm;
+    document.getElementById("lonboxms").value=lgd;
 }
 
 
 function showLatLong(latitude, longitude) {
-if (isNaN(latitude)) {alert(' Latitude must be a number. e.g. Use +/- instead of N/S'); return false;}
+    if (isNaN(latitude)) {alert(' Latitude must be a number. e.g. Use +/- instead of N/S'); return false;}
 if (isNaN(longitude)) {alert(' Longitude must be a number.  e.g. Use +/- instead of E/W'); return false;}
 
 latitude1 = Math.abs( Math.round(latitude * 1000000.));
@@ -429,142 +518,142 @@ computepos(point);
 
 function streetview()
 {
-if (posset == 0)
-{
-  alert("Position Not Set.  Please click on the spot on the map to set the street view point.");
-  return;
-}
+    if (posset == 0)
+    {
+        alert("Position Not Set.  Please click on the spot on the map to set the street view point.");
+        return;
+    }
 
-var point = map.getCenter();
-var t1 = String(point);
-t1 = t1.replace(/[() ]+/g,"");
-var str = "http://www.satelliteview.co/?e=" + t1 + ":0:Latitude-Longitude Point:sv:0";
-var popup = window.open(str, "llwindow");
-popup.focus();
+    var point = map.getCenter();
+    var t1 = String(point);
+    t1 = t1.replace(/[() ]+/g,"");
+    var str = "http://www.satelliteview.co/?e=" + t1 + ":0:Latitude-Longitude Point:sv:0";
+    var popup = window.open(str, "llwindow");
+    popup.focus();
 }
 
 function googleearth()
 {
-if (posset == 0)
-{
-  alert("Position Not Set.  Please click on the spot on the map to set the Google Earth map point.");
-  return;
-}
-var point = map.getCenter();
-var gearth_str = "/?r=googleearth&mt=Latitude-Longitude Point&ml=" + point.lat() + "&mg=" + point.lng();
-var popup = window.open(gearth_str, "llwindow");
-popup.focus();
+    if (posset == 0)
+    {
+        alert("Position Not Set.  Please click on the spot on the map to set the Google Earth map point.");
+        return;
+    }
+    var point = map.getCenter();
+    var gearth_str = "/?r=googleearth&mt=Latitude-Longitude Point&ml=" + point.lat() + "&mg=" + point.lng();
+    var popup = window.open(gearth_str, "llwindow");
+    popup.focus();
 }
 
 function pictures()
 {
-if (posset == 0)
-{
-  alert("Position Not Set.  Please click on the spot on the map to set the photograph point.");
-  return;
-}
-var point = map.getCenter();
-var pictures_str = "http://www.picturepastime.com?r=pictures&mt=Latitude-Longitude Point&ml=" + point.lat() + "&mg=" + point.lng();
-var popup = window.open(pictures_str, "llwindow");
-popup.focus();
+    if (posset == 0)
+    {
+        alert("Position Not Set.  Please click on the spot on the map to set the photograph point.");
+        return;
+    }
+    var point = map.getCenter();
+    var pictures_str = "http://www.picturepastime.com?r=pictures&mt=Latitude-Longitude Point&ml=" + point.lat() + "&mg=" + point.lng();
+    var popup = window.open(pictures_str, "llwindow");
+    popup.focus();
 }
 
 function lotsize()
 {
-if (posset == 0)
-{
-  alert("Position Not Set.  Please click on the spot on the map to set the lot size map point.");
-  return;
-}
-var point = map.getCenter();
-var t1 = String(point);
-t1 = t1.replace(/[() ]+/g,"");
-var lotsize_str = "http://www.satelliteview.co/?e=" + t1 + ":0:Latitude-Longitude Point:measure:0";
-var popup = window.open(lotsize_str, "llwindow");
-popup.focus();
+    if (posset == 0)
+    {
+        alert("Position Not Set.  Please click on the spot on the map to set the lot size map point.");
+        return;
+    }
+    var point = map.getCenter();
+    var t1 = String(point);
+    t1 = t1.replace(/[() ]+/g,"");
+    var lotsize_str = "http://www.satelliteview.co/?e=" + t1 + ":0:Latitude-Longitude Point:measure:0";
+    var popup = window.open(lotsize_str, "llwindow");
+    popup.focus();
 }
 
 function getaddress()
 {
-if (posset == 0)
-{
-  alert("Position Not Set.  Please click on the spot on the map to set the get address map point.");
-  return;
-}
-var point = map.getCenter();
-var t1 = String(point);
-t1 = t1.replace(/[() ]+/g,"");
-var getaddr_str = "http://www.satelliteview.co/?e=" + t1 + ":0:Latitude-Longitude Point:map:0";
-var popup = window.open(getaddr_str, "llwindow");
-popup.focus();
+    if (posset == 0)
+    {
+        alert("Position Not Set.  Please click on the spot on the map to set the get address map point.");
+        return;
+    }
+    var point = map.getCenter();
+    var t1 = String(point);
+    t1 = t1.replace(/[() ]+/g,"");
+    var getaddr_str = "http://www.satelliteview.co/?e=" + t1 + ":0:Latitude-Longitude Point:map:0";
+    var popup = window.open(getaddr_str, "llwindow");
+    popup.focus();
 }
 
 function fc(point)
 {
-gC(point);
-var html= "<div style='color:#000;background-color:#fff;padding:3px;width:150px;'><p>Latitude - Longitude:<br />" + String(point.toUrlValue()) + "<br /><br />Lat: " + ls +  "&#176; " + lm +  "&#39; "  + ld + "&#34;<br />Long: " + lgs +  "&#176; " + lgm +  "&#39; " + lgd + "&#34;</p></div>";
-var iw = new google.maps.InfoWindow({content:html});
-var marker = new google.maps.Marker({position:point,map:map,icon:'/i/blue-dot.png',draggable:true});
-mrks.mvcMarkers.push(marker);
-google.maps.event.addListener(marker, 'click', function(event) {
-gC(event.latLng);
-var html= "<div style='color:#000;background-color:#fff;padding:3px;width:150px;'><p>Latitude - Longitude:<br />" + String(event.latLng.toUrlValue()) + "<br /><br />Lat: " + ls +  "&#176; " + lm +  "&#39; "  + ld + "&#34;<br />Long: " + lgs +  "&#176; " + lgm +  "&#39; " + lgd + "&#34;</p></div>";
-var iw = new google.maps.InfoWindow({content:html});
-iw.open(map,marker);
-computepos(event.latLng);
-});
+    gC(point);
+    var html= "<div style='color:#000;background-color:#fff;padding:3px;width:150px;'><p>Latitude - Longitude:<br />" + String(point.toUrlValue()) + "<br /><br />Lat: " + ls +  "&#176; " + lm +  "&#39; "  + ld + "&#34;<br />Long: " + lgs +  "&#176; " + lgm +  "&#39; " + lgd + "&#34;</p></div>";
+    var iw = new google.maps.InfoWindow({content:html});
+    var marker = new google.maps.Marker({position:point,map:map,icon:'/i/blue-dot.png',draggable:true});
+    mrks.mvcMarkers.push(marker);
+    google.maps.event.addListener(marker, 'click', function(event) {
+        gC(event.latLng);
+        var html= "<div style='color:#000;background-color:#fff;padding:3px;width:150px;'><p>Latitude - Longitude:<br />" + String(event.latLng.toUrlValue()) + "<br /><br />Lat: " + ls +  "&#176; " + lm +  "&#39; "  + ld + "&#34;<br />Long: " + lgs +  "&#176; " + lgm +  "&#39; " + lgd + "&#34;</p></div>";
+        var iw = new google.maps.InfoWindow({content:html});
+        iw.open(map,marker);
+        computepos(event.latLng);
+    });
 }
 
 
 function gC(ll){
-var latA = Math.abs(Math.round(ll.lat() * 1000000.));
-var lonA = Math.abs(Math.round(ll.lng() * 1000000.));
-if(ll.lat() < 0)
-{
-  var tls = '-' + Math.floor((latA / 1000000)).toString();
-}
-else
-{
-  var tls = Math.floor((latA / 1000000)).toString();
-}
-var tlm = Math.floor(((latA/1000000) - Math.floor(latA/1000000)) * 60).toString();
-var tld = ( Math.floor(((((latA/1000000) - Math.floor(latA/1000000)) * 60) - Math.floor(((latA/1000000) - Math.floor(latA/1000000)) * 60)) * 100000) *60/100000 ).toString();
-ls = tls.toString();
-lm = tlm.toString();
-ld = tld.toString();
+    var latA = Math.abs(Math.round(ll.lat() * 1000000.));
+    var lonA = Math.abs(Math.round(ll.lng() * 1000000.));
+    if(ll.lat() < 0)
+    {
+        var tls = '-' + Math.floor((latA / 1000000)).toString();
+    }
+    else
+    {
+        var tls = Math.floor((latA / 1000000)).toString();
+    }
+    var tlm = Math.floor(((latA/1000000) - Math.floor(latA/1000000)) * 60).toString();
+    var tld = ( Math.floor(((((latA/1000000) - Math.floor(latA/1000000)) * 60) - Math.floor(((latA/1000000) - Math.floor(latA/1000000)) * 60)) * 100000) *60/100000 ).toString();
+    ls = tls.toString();
+    lm = tlm.toString();
+    ld = tld.toString();
 
-if(ll.lng() < 0)
-{
-  var tlgs = '-' + Math.floor((lonA / 1000000)).toString();
-}
-else
-{
-  var tlgs = Math.floor((lonA / 1000000)).toString();
-}
-var tlgm = Math.floor(((lonA/1000000) - Math.floor(lonA/1000000)) * 60).toString();
-var tlgd = ( Math.floor(((((lonA/1000000) - Math.floor(lonA/1000000)) * 60) - Math.floor(((lonA/1000000) - Math.floor(lonA/1000000)) * 60)) * 100000) *60/100000 ).toString();
-lgs = tlgs.toString();
-lgm = tlgm.toString();
-lgd = tlgd.toString();
+    if(ll.lng() < 0)
+    {
+        var tlgs = '-' + Math.floor((lonA / 1000000)).toString();
+    }
+    else
+    {
+        var tlgs = Math.floor((lonA / 1000000)).toString();
+    }
+    var tlgm = Math.floor(((lonA/1000000) - Math.floor(lonA/1000000)) * 60).toString();
+    var tlgd = ( Math.floor(((((lonA/1000000) - Math.floor(lonA/1000000)) * 60) - Math.floor(((lonA/1000000) - Math.floor(lonA/1000000)) * 60)) * 100000) *60/100000 ).toString();
+    lgs = tlgs.toString();
+    lgm = tlgm.toString();
+    lgd = tlgd.toString();
 }
 
 function reset() {
-mrks.mvcMarkers.forEach(function(elem, index) {elem.setMap(null);});
-mrks.mvcMarkers.clear();
-document.getElementById("map_search").value='';
-document.getElementById("latboxm").value='';
-document.getElementById("latboxmd").value='';
-document.getElementById("latboxms").value='';
-document.getElementById("lonbox").value='';
-document.getElementById("lonboxm").value='';
-document.getElementById("lonboxmd").value='';
-document.getElementById("lonboxms").value='';
-marker.setPosition(map.getCenter());
+    mrks.mvcMarkers.forEach(function(elem, index) {elem.setMap(null);});
+    mrks.mvcMarkers.clear();
+    document.getElementById("map_search").value='';
+    document.getElementById("latboxm").value='';
+    document.getElementById("latboxmd").value='';
+    document.getElementById("latboxms").value='';
+    document.getElementById("lonbox").value='';
+    document.getElementById("lonboxm").value='';
+    document.getElementById("lonboxmd").value='';
+    document.getElementById("lonboxms").value='';
+    marker.setPosition(map.getCenter());
 }
 
 function reset1() {
-marker.setPosition(map.getCenter());
-computepos (map.getCenter());
+    marker.setPosition(map.getCenter());
+    computepos (map.getCenter());
 }
 
 //]]>
