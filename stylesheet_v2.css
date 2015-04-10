@@ -4,7 +4,9 @@ Credit: www.cmproperties.es
 
 
 
-
+/* ------------- HIDE GOOGLE TRANSLATOR TOP BAR -------------------------- */
+.goog-te-banner-frame.skiptranslate {display: none !important;} 
+body { top: 0px !important; }
 
 
 

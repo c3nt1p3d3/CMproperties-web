@@ -67,7 +67,7 @@ $ypos = $_COOKIE["ypos"]; //gets the Y position from the COOKIES
 
 
         <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ TRANSLATOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
+<!--
         <div id="translate_element2">
 
             <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=en" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/english.png"></a>
@@ -81,6 +81,22 @@ $ypos = $_COOKIE["ypos"]; //gets the Y position from the COOKIES
             <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=es" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/spanish.png"></a>
             <!-- <p align="center"><?php echo Translate('Choose your language',''); ?></p> -->
         </div>
+-->
+
+
+
+<div style="background-color: #FE8300;">
+
+<div id="google_translate_element" align="right"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,de,fr,sv,no,ru,nl,da,it,fi,', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-59156391-1'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>
+
+
+
+
 
 <?php
 
@@ -111,12 +127,10 @@ echo "<body onScroll=\"document.cookie='ypos=' + window.pageYOffset\" onLoad='wi
                     </div> <!-- end of site_title -->
                     <div id="templatemo_menu" class="notranslate">
                         <ul>
-                            <li><a href="index.php?lang=<?php print($_SESSION['lang']); ?>">Home</a></li>
-                            <li><a href="search_result.php?lang=<?php print($_SESSION['lang']); ?>">For Sale</a></li>
-                            <li><a href="search_result_rent.php?lang=<?php print($_SESSION['lang']); ?>" class="current">For Rent</a></li>
-                            <!--                 <li><a href="portfolio.html">Portfolio</a></li> -->
-                            <li><a href="contacto.php?lang=<?php print($_SESSION['lang']); ?>">Contact</a></li>
-                            <!--                 <li class="last"><a href="contact.html">Contact</a></li> -->
+                            <li class="notranslate"><a href="index.php?lang=<?php print($_SESSION['lang']); ?>">Home</a></li>
+                            <li class="notranslate"><a href="search_result.php?lang=<?php print($_SESSION['lang']); ?>">For Sale</a></li>
+                            <li class="notranslate"><a href="search_result_rent.php?lang=<?php print($_SESSION['lang']); ?>" class="current">For Rent</a></li>
+                            <li class="notranslate"><a href="contacto.php?lang=<?php print($_SESSION['lang']); ?>">Contact</a></li>
                         </ul>
 
 

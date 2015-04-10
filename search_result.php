@@ -86,6 +86,7 @@ function clearText(field)
 
     <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ TRANSLATOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
+<!--
     <div id="translate_element2">
         <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=en" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/english.png"></a>
         <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=no" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/norwegian.png"></a>
@@ -96,8 +97,24 @@ function clearText(field)
         <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=zh-CN" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/chinese.jpg"></a>
         <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=fr" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/french.jpeg"></a>
         <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=es" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/spanish.png"></a>
-        <!-- <p align="center"><?php echo Translate('Choose your language',''); ?></p> -->
     </div>
+-->
+
+
+
+
+
+<div style="background-color: #FE8300;">
+
+<div id="google_translate_element" align="right"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,de,fr,sv,no,ru,nl,da,it,fi,', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-59156391-1'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>
+
+
+
 
 <?php
 
@@ -124,10 +141,10 @@ $_SESSION['lang'] = $_GET['lang'];
             <div id="site_title" class="notranslate">
                 <a href="index.php"><img name="cmproperties" src="images/logo.png" height="95px" width="245px" alt="cmproperties" /><span><img src="images/properties.png" height="53px" width="223px" alt="properties" /></span></a>        </div>
             <ul>
-                <li><a href="index.php?lang=<?php print($_SESSION['lang']); ?>">Home</a></li>
-                <li><a href="search_result.php?lang=<?php print($_SESSION['lang']); ?>" class="current">For Sale</a></li>
-                <li><a href="search_result_rent.php?lang=<?php print($_SESSION['lang']); ?>">For Rent</a></li>
-                <li><a href="contacto.php?lang=<?php print($_SESSION['lang']); ?>">Contact</a></li>
+                <li class="notranslate"><a href="index.php?lang=<?php print($_SESSION['lang']); ?>">Home</a></li>
+                <li class="notranslate"><a href="search_result.php?lang=<?php print($_SESSION['lang']); ?>" class="current">For Sale</a></li>
+                <li class="notranslate"><a href="search_result_rent.php?lang=<?php print($_SESSION['lang']); ?>">For Rent</a></li>
+                <li class="notranslate"><a href="contacto.php?lang=<?php print($_SESSION['lang']); ?>">Contact</a></li>
                 <!--                 <li class="last"><a href="contact.html">Contact</a></li> -->
             </ul>
 

@@ -54,13 +54,6 @@
 
                             mysql_select_db("cmproperties", $db);
 
-                            $localidad = $_POST['localidad'];
-                            $wc = $_POST['wc'];
-                            $cat = $_POST['cat'];
-                            $hab = $_POST['hab'];
-                            $pmax = $_POST['precio_max'];
-
-
                             $query = mysql_query("SELECT * FROM `Casas`");
 
 
@@ -75,7 +68,11 @@
                                 if ($house_counter!=0 && $house_counter % 4 == 0){
                                     echo "</tr>";
                                 echo "<tr>";
-                                    echo "<td align='center' bgcolor='#ffffff' width='250px' height='305px' >";
+                                    if($row['visible']==1){
+                                        echo "<td align='center' bgcolor='#ffffff' width='250px' height='305px' >";
+                                    } else {
+                                        echo "<td align='center' bgcolor='red' width='250px' height='305px' >";
+                                    }
                                         echo "<a href='modify.php?ref=" . $row['ref'] . "'> <img src='" . $row2['imgpath'] . "' width='95%' height='140px' alt='' style='margin: 0px 0px -38px 0px;' /></a></br>";
                                         if($row['sold']==1){
                                             echo "<b style='font-size: 35px; color: red;'>Sold</b><br><br>"; /* ********************************* SOLD LETTERS ********************************************** */
@@ -89,7 +86,11 @@
                                     //echo "</tr>";
                                 $house_counter ++;
                             }else{
+                                    if($row['visible']==1){
                                 echo "<td align='center' bgcolor='#ffffff' width='250px' height='305px'>";
+                                    } else {
+                                        echo "<td align='center' bgcolor='red' width='250px' height='305px'>";
+                                    }
                                     echo "<a href='modify.php?ref=" . $row['ref'] . "'> <img src='" . $row2['imgpath'] . "' width='95%' height='140px' alt='' style='margin: 0px 0px -38px 0px;' /></a></br>";
                                     if($row['sold']==1){
                                         echo "<b style='font-size: 35px; color: red;'>Sold</b><br><br>"; /* ********************************* SOLD LETTERS ********************************************** */

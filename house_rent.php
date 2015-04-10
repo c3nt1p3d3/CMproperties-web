@@ -56,7 +56,7 @@ swfobject.embedSWF('piecemaker.swf', 'piecemaker', '940', '420', '10', null, fla
 
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ TRANSLATOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-
+<!--
 <div id="translate_element2">
 
 <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=en" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/english.png"></a>
@@ -69,6 +69,20 @@ swfobject.embedSWF('piecemaker.swf', 'piecemaker', '940', '420', '10', null, fla
 <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=fr" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/french.jpeg"></a>
 <a href="<?php print($_SERVER['PHP_SELF']."?".$qs); ?>&lang=es" style="display:inline; border:none;" ><img style="height:26px; width:38px;" src="images/flags/spanish.png"></a>
 </div>
+-->
+
+
+
+
+<div style="background-color: #FE8300;">
+
+<div id="google_translate_element" align="right"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'de,en,es,no,ru,sv', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-59156391-1'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>
+
 
 
 <?php
@@ -139,10 +153,10 @@ function clearText(field)
                 <a href="index.php"><img src="images/logo.png" height="95px" width="245px" alt="logo" /><span><img src="images/properties.png" height="53px" width="223px" alt="properties" /></span></a>        </div> <!-- end of site_title -->
         <div id="templatemo_menu" class="notranslate">
             <ul>
-                <li><a href="index.php?lang=<?php print($_SESSION['lang']); ?>">Home</a></li>
-                <li><a href="search_result.php?lang=<?php print($_SESSION['lang']); ?>">For Sale</a></li>
-                <li><a href="search_result_rent.php?lang=<?php print($_SESSION['lang']); ?>" class="current">For Rent</a></li>
-                <li><a href="contacto.php?lang=<?php print($_SESSION['lang']); ?>">Contact</a></li>
+                <li class="notranslate"><a href="index.php?lang=<?php print($_SESSION['lang']); ?>">Home</a></li>
+                <li class="notranslate"><a href="search_result.php?lang=<?php print($_SESSION['lang']); ?>">For Sale</a></li>
+                <li class="notranslate"><a href="search_result_rent.php?lang=<?php print($_SESSION['lang']); ?>" class="current">For Rent</a></li>
+                <li class="notranslate"><a href="contacto.php?lang=<?php print($_SESSION['lang']); ?>">Contact</a></li>
             </ul>
 
             <div class="cleaner"></div>    	
